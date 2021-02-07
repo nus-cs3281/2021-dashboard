@@ -1,0 +1,18 @@
+{
+  "repoSenseVersion": "0b7e276b40",
+  "reportGeneratedTime": "Sun Feb 7 14:02:21 2021 UTC",
+  "reportGenerationTime": " 3.86 second(s)",
+  "zoneId": "Etc/UTC",
+  "reportTitle": "RepoSense Report",
+  "repos": [],
+  "errorList": [
+    {
+      "repoName": "reposense/RepoSense[master]",
+      "errorMessage": "Failed to clone from https://github.com/reposense/RepoSense.git"
+    }
+  ],
+  "sinceDate": "2021-01-07",
+  "untilDate": "2021-02-07",
+  "isSinceDateProvided": false,
+  "isUntilDateProvided": false
+}
