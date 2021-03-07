@@ -31,12 +31,12 @@ function deleteDashInputDate(event) {
   }
 }
 
-window.formatInputDateOnKeyDown = function formatInputDateOnKeyDown(event) {
+window.formatInputDateOnKeyDown = function (event) {
   validateInputDate(event);
   deleteDashInputDate(event);
 };
 
-window.appendDashInputDate = function appendDashInputDate(event) {
+window.appendDashInputDate = function (event) {
   const date = event.target.value;
   // append dash to date with format yyyy-mm-dd
   if (date.match(/^\d{4}$/) !== null) {

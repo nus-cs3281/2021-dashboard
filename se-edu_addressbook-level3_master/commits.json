@@ -1,1 +1,258 @@
-{"authorDailyContributionsMap":{"moziliar":[],"t-cheepeng":[],"kkangs0226":[],"ptvrajsk":[],"halfwhole":[],"dcshzj":[],"gerhean":[],"rolandyuwy":[],"HCY123902":[],"jianhandev":[],"Derek-Hardy":[],"daongochieu2810":[],"dingyuchen":[],"raysonkoh":[],"teikjun":[],"wxwxwxwx9":[],"seanlowjk":[],"jonahtanjz":[{"date":"2020-12-12","commitResults":[{"hash":"18889bb5e9f35a805f9329ff08f86ea8a2088d17","messageTitle":"Person: Add delimiters to result message","messageBody":"There are no delimiters between each field entered.\n\nThe result message is not as user-friendly.\n\nLet\u0027s add delimiters to the result message.\n\n(cherry picked from commit b12efb28695201fae829f4c01f85fd18cc4d1af1)\n","fileTypesAndContributionMap":{"java":{"insertions":4,"deletions":4}}},{"hash":"fb67d1f47d94fa8942bfbb5350c5675322ddffcc","messageTitle":"Person: Remove \u0027Tags: \u0027 if there are no tags","messageBody":"An additional phrase \u0027Tags:\u0027 is always present even if the user did\nnot input any tags.\n\nThis is not intuitive as the result message is displaying\nunnecessary information.\n\nLet\u0027s remove \u0027Tags:\u0027 from the result message if tags are not present.\n\n(cherry picked from commit b930d99708bbda0385bbf428fc2916a3d4a98d11)\n","fileTypesAndContributionMap":{"java":{"insertions":7,"deletions":3}}}]}],"AdithyaNarayan":[],"ryoarmanda":[]},"authorFileTypeContributionMap":{"moziliar":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"t-cheepeng":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"kkangs0226":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"ptvrajsk":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"halfwhole":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"dcshzj":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"gerhean":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"rolandyuwy":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"HCY123902":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"jianhandev":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"Derek-Hardy":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"daongochieu2810":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"dingyuchen":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"raysonkoh":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"teikjun":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"wxwxwxwx9":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"seanlowjk":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"jonahtanjz":{"java":10,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"AdithyaNarayan":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0},"ryoarmanda":{"java":0,"js":0,"css":0,"adoc":0,"fxml":0,"gradle":0}},"authorContributionVariance":{"moziliar":0.0,"t-cheepeng":0.0,"kkangs0226":0.0,"ptvrajsk":0.0,"halfwhole":0.0,"dcshzj":0.0,"gerhean":0.0,"rolandyuwy":0.0,"HCY123902":0.0,"jianhandev":0.0,"Derek-Hardy":0.0,"daongochieu2810":0.0,"dingyuchen":0.0,"raysonkoh":0.0,"teikjun":0.0,"wxwxwxwx9":0.0,"seanlowjk":0.0,"jonahtanjz":24.75,"AdithyaNarayan":0.0,"ryoarmanda":0.0},"authorDisplayNameMap":{"moziliar":"MO Z..GRAN","t-cheepeng":"TAN ..PENG","kkangs0226":"KANG.. MIN","ptvrajsk":"PRIT..UMAR","halfwhole":"LIM .. WEI","dcshzj":"HSU .. JUN","gerhean":"CHAN..HEAN","rolandyuwy":"ROLA..YANG","HCY123902":"HUAN..NGYU","jianhandev":"LI J..NHAN","Derek-Hardy":"ZHUA..NJIE","daongochieu2810":"DAO ..HIEU","dingyuchen":"DING..CHEN","raysonkoh":"KOH ..YSON","teikjun":"TAN .. JUN","wxwxwxwx9":"ONG ..IANG","seanlowjk":"LOW ..SEAN","jonahtanjz":"JONA..N ZI","AdithyaNarayan":"ADIT..ASAN","ryoarmanda":"RYO ..ANDA"}}
+{
+  "authorDailyContributionsMap": {
+    "moziliar": [],
+    "t-cheepeng": [],
+    "kkangs0226": [],
+    "ptvrajsk": [],
+    "halfwhole": [],
+    "dcshzj": [],
+    "gerhean": [],
+    "rolandyuwy": [],
+    "HCY123902": [],
+    "jianhandev": [],
+    "Derek-Hardy": [],
+    "daongochieu2810": [],
+    "dingyuchen": [],
+    "raysonkoh": [],
+    "teikjun": [],
+    "wxwxwxwx9": [],
+    "seanlowjk": [],
+    "jonahtanjz": [
+      {
+        "date": "2020-12-12",
+        "commitResults": [
+          {
+            "hash": "18889bb5e9f35a805f9329ff08f86ea8a2088d17",
+            "messageTitle": "Person: Add delimiters to result message",
+            "messageBody": "There are no delimiters between each field entered.\n\nThe result message is not as user-friendly.\n\nLet\u0027s add delimiters to the result message.\n\n(cherry picked from commit b12efb28695201fae829f4c01f85fd18cc4d1af1)\n",
+            "fileTypesAndContributionMap": {
+              "java": {
+                "insertions": 4,
+                "deletions": 4
+              }
+            }
+          },
+          {
+            "hash": "fb67d1f47d94fa8942bfbb5350c5675322ddffcc",
+            "messageTitle": "Person: Remove \u0027Tags: \u0027 if there are no tags",
+            "messageBody": "An additional phrase \u0027Tags:\u0027 is always present even if the user did\nnot input any tags.\n\nThis is not intuitive as the result message is displaying\nunnecessary information.\n\nLet\u0027s remove \u0027Tags:\u0027 from the result message if tags are not present.\n\n(cherry picked from commit b930d99708bbda0385bbf428fc2916a3d4a98d11)\n",
+            "fileTypesAndContributionMap": {
+              "java": {
+                "insertions": 7,
+                "deletions": 3
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "AdithyaNarayan": [],
+    "ryoarmanda": []
+  },
+  "authorFileTypeContributionMap": {
+    "moziliar": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "t-cheepeng": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "kkangs0226": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "ptvrajsk": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "halfwhole": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "dcshzj": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "gerhean": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "rolandyuwy": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "HCY123902": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "jianhandev": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "Derek-Hardy": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "daongochieu2810": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "dingyuchen": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "raysonkoh": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "teikjun": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "wxwxwxwx9": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "seanlowjk": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "jonahtanjz": {
+      "java": 10,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "AdithyaNarayan": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    },
+    "ryoarmanda": {
+      "java": 0,
+      "js": 0,
+      "css": 0,
+      "adoc": 0,
+      "fxml": 0,
+      "gradle": 0
+    }
+  },
+  "authorContributionVariance": {
+    "moziliar": 0.0,
+    "t-cheepeng": 0.0,
+    "kkangs0226": 0.0,
+    "ptvrajsk": 0.0,
+    "halfwhole": 0.0,
+    "dcshzj": 0.0,
+    "gerhean": 0.0,
+    "rolandyuwy": 0.0,
+    "HCY123902": 0.0,
+    "jianhandev": 0.0,
+    "Derek-Hardy": 0.0,
+    "daongochieu2810": 0.0,
+    "dingyuchen": 0.0,
+    "raysonkoh": 0.0,
+    "teikjun": 0.0,
+    "wxwxwxwx9": 0.0,
+    "seanlowjk": 0.0,
+    "jonahtanjz": 24.75,
+    "AdithyaNarayan": 0.0,
+    "ryoarmanda": 0.0
+  },
+  "authorDisplayNameMap": {
+    "moziliar": "MO Z..GRAN",
+    "t-cheepeng": "TAN ..PENG",
+    "kkangs0226": "KANG.. MIN",
+    "ptvrajsk": "PRIT..UMAR",
+    "halfwhole": "LIM .. WEI",
+    "dcshzj": "HSU .. JUN",
+    "gerhean": "CHAN..HEAN",
+    "rolandyuwy": "ROLA..YANG",
+    "HCY123902": "HUAN..NGYU",
+    "jianhandev": "LI J..NHAN",
+    "Derek-Hardy": "ZHUA..NJIE",
+    "daongochieu2810": "DAO ..HIEU",
+    "dingyuchen": "DING..CHEN",
+    "raysonkoh": "KOH ..YSON",
+    "teikjun": "TAN .. JUN",
+    "wxwxwxwx9": "ONG ..IANG",
+    "seanlowjk": "LOW ..SEAN",
+    "jonahtanjz": "JONA..N ZI",
+    "AdithyaNarayan": "ADIT..ASAN",
+    "ryoarmanda": "RYO ..ANDA"
+  }
+}

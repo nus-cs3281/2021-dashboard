@@ -1,4 +1,3 @@
-/* global Vuex */
 // eslint-disable-next-line import/extensions
 import store from './store.js';
 
@@ -13,9 +12,6 @@ Vue.directive('hljs', {
 });
 
 Vue.component('font-awesome-icon', window['vue-fontawesome'].FontAwesomeIcon);
-Vue.component('loading-overlay', window.VueLoading);
-
-const loadingResourcesMessage = 'Loading resources...';
 
 window.app = new window.Vue({
   el: '#app',
@@ -25,28 +21,24 @@ window.app = new window.Vue({
     users: [],
     userUpdated: false,
 
-    isLoadingOverlayEnabled: false,
-    loadingOverlayOpacity: 1,
-
+    isLoading: false,
+    isCollapsed: false,
     isTabActive: true, // to force tab wrapper to load
 
     tabType: 'empty',
+    tabInfo: {},
     creationDate: '',
 
     errorMessages: {},
   },
   watch: {
     '$store.state.tabZoomInfo': function () {
-      if (this.$store.state.tabZoomInfo.isRefreshing) {
-        return;
-      }
+      this.tabInfo.tabZoom = Object.assign({}, this.$store.state.tabZoomInfo);
       this.activateTab('zoom');
     },
     '$store.state.tabAuthorshipInfo': function () {
+      this.tabInfo.tabAuthorship = Object.assign({}, this.$store.state.tabAuthorshipInfo);
       this.activateTab('authorship');
-    },
-    '$store.state.loadingOverlayCount': function () {
-      this.isLoadingOverlayEnabled = this.$store.state.loadingOverlayCount > 0;
     },
   },
   methods: {
@@ -61,38 +53,33 @@ window.app = new window.Vue({
             window.alert('Either the .zip file is corrupted, or you uploaded a .zip file that is not generated '
                 + 'by RepoSense.');
           })
-          .then(() => this.updateReportView());
+          .then(() => this.updateReportView().then(() => this.renderTabHash()));
     },
-
     updateReportDir() {
       window.REPORT_ZIP = null;
 
       this.users = [];
-      this.updateReportView();
+      this.updateReportView().then(() => this.renderTabHash());
     },
-
     async updateReportView() {
-      this.$store.commit('incrementLoadingOverlayCount', 1);
-      this.$store.commit('updateLoadingOverlayMessage', loadingResourcesMessage);
-      this.userUpdated = false;
-      try {
-        const names = await window.api.loadSummary();
-        if (names === null) {
-          return;
-        }
+      await window.api.loadSummary().then((names) => {
         this.repos = window.REPOS;
-        await Promise.all(names.map((name) => (
+
+        this.userUpdated = false;
+        this.isLoading = true;
+
+        return Promise.all(names.map((name) => (
           window.api.loadCommits(name)
         )));
-        this.loadingOverlayOpacity = 0.5;
-        this.getUsers();
-        this.renderTabHash();
+      }).then(() => {
         this.userUpdated = true;
-      } catch (error) {
+        this.isLoading = false;
+        this.getUsers();
+      }).catch((error) => {
+        this.userUpdated = false;
+        this.isLoading = false;
         window.alert(error);
-      } finally {
-        this.$store.commit('incrementLoadingOverlayCount', -1);
-      }
+      });
     },
     getUsers() {
       const full = [];
@@ -106,11 +93,14 @@ window.app = new window.Vue({
 
     // handle opening of sidebar //
     activateTab(tabName) {
+      // changing isTabActive to trigger redrawing of component
+      this.isTabActive = false;
       if (this.$refs.tabWrapper) {
         this.$refs.tabWrapper.scrollTop = 0;
       }
 
       this.isTabActive = true;
+      this.isCollapsed = false;
       this.tabType = tabName;
 
       window.addHash('tabOpen', this.isTabActive);
@@ -131,7 +121,6 @@ window.app = new window.Vue({
         author: hash.tabAuthor,
         repo: hash.tabRepo,
         isMergeGroup: hash.authorshipIsMergeGroup === 'true',
-        isRefresh: true,
         minDate,
         maxDate,
       };
@@ -146,7 +135,6 @@ window.app = new window.Vue({
     renderZoomTabHash() {
       const hash = window.hashParams;
       const zoomInfo = {
-        isRefreshing: true,
         zAuthor: hash.zA,
         zRepo: hash.zR,
         zAvgCommitSize: hash.zACS,
@@ -167,6 +155,7 @@ window.app = new window.Vue({
     },
 
     renderTabHash() {
+      window.decodeHash();
       const hash = window.hashParams;
       if (!hash.tabOpen) {
         return;
@@ -185,6 +174,10 @@ window.app = new window.Vue({
           this.renderZoomTabHash();
         }
       }
+    },
+
+    generateKey(dataObj) {
+      return JSON.stringify(dataObj);
     },
 
     getRepoSenseHomeLink() {
@@ -230,19 +223,14 @@ window.app = new window.Vue({
       }
     },
   },
-
-  computed: {
-    ...Vuex.mapState(['loadingOverlayMessage']),
-  },
-
   components: {
     vResizer: window.vResizer,
     vZoom: window.vZoom,
     vSummary: window.vSummary,
     vAuthorship: window.vAuthorship,
+    CircleSpinner: window.VueLoadingSpinner.Circle,
   },
   created() {
-    window.decodeHash();
     this.updateReportDir();
   },
 });
