@@ -157,6 +157,22 @@
             }
           }
         ]
+      },
+      {
+        "date": "2021-03-07",
+        "commitResults": [
+          {
+            "hash": "fb446b92224d41ed0bf0a038b418723b7308e935",
+            "messageTitle": "OAuth: Add state parameter to authentication process (#625)",
+            "messageBody": "CATcher authentication process does not include a verification\r\nstep using an unique state parameter.\r\n\r\nAdding this state parameter will improve security, as it will\r\nhelp to protect users against cross-site request forgery attacks.\r\n\r\nLet\u0027s add this state verification step to the authentication process.",
+            "fileTypesAndContributionMap": {
+              "ts": {
+                "insertions": 43,
+                "deletions": 7
+              }
+            }
+          }
+        ]
       }
     ],
     "ptvrajsk": [
@@ -576,7 +592,7 @@
       "js": 0,
       "css": 0,
       "html": 2,
-      "ts": 474
+      "ts": 515
     },
     "ptvrajsk": {
       "js": 73,
@@ -684,8 +700,8 @@
   "authorContributionVariance": {
     "moziliar": 0.0,
     "t-cheepeng": 0.0,
-    "kkangs0226": 1233.4688,
-    "ptvrajsk": 15677.095,
+    "kkangs0226": 1227.2153,
+    "ptvrajsk": 15358.907,
     "halfwhole": 0.0,
     "dcshzj": 0.0,
     "gerhean": 0.0,
@@ -694,11 +710,11 @@
     "jianhandev": 0.0,
     "Derek-Hardy": 0.0,
     "daongochieu2810": 0.0,
-    "dingyuchen": 30219.826,
+    "dingyuchen": 29605.805,
     "raysonkoh": 0.0,
     "teikjun": 0.0,
     "wxwxwxwx9": 0.0,
-    "seanlowjk": 1086.9617,
+    "seanlowjk": 1066.1554,
     "jonahtanjz": 0.0,
     "AdithyaNarayan": 0.0,
     "ryoarmanda": 0.0

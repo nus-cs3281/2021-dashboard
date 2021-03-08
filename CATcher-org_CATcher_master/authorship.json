@@ -1632,6 +1632,807 @@
     }
   },
   {
+    "path": "electron-utils/oauth.ts",
+    "fileType": "ts",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "import { BrowserWindow, shell } from \u0027electron\u0027;"
+      },
+      {
+        "lineNumber": 2,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "import { v4 as uuid } from \u0027uuid\u0027;"
+      },
+      {
+        "lineNumber": 3,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 4,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const nodeUrl \u003d require(\u0027url\u0027);"
+      },
+      {
+        "lineNumber": 5,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const fetch \u003d require(\u0027node-fetch\u0027);"
+      },
+      {
+        "lineNumber": 6,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const Logger \u003d require(\u0027electron-log\u0027);"
+      },
+      {
+        "lineNumber": 7,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 8,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const CLIENT_ID \u003d \u00276750652c0c9001314434\u0027;"
+      },
+      {
+        "lineNumber": 9,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const BASE_URL \u003d \u0027https://github.com\u0027;"
+      },
+      {
+        "lineNumber": 10,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const ACCESS_TOKEN_URL \u003d \u0027https://catcher-proxy.herokuapp.com/authenticate\u0027;"
+      },
+      {
+        "lineNumber": 11,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "const CALLBACK_URL \u003d \u0027http://localhost:4200\u0027;"
+      },
+      {
+        "lineNumber": 12,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 13,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "let authWindow;"
+      },
+      {
+        "lineNumber": 14,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 15,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "/**"
+      },
+      {
+        "lineNumber": 16,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * Will retrieve the access token from a proxy server which acts as a intermediary to retrieve the tokens from Github."
+      },
+      {
+        "lineNumber": 17,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * @param window - The main window of CATcher."
+      },
+      {
+        "lineNumber": 18,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * @param repoPermissionLevel - The level of permission required to be granted by the user to use CATcher."
+      },
+      {
+        "lineNumber": 19,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " */"
+      },
+      {
+        "lineNumber": 20,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "export function getAccessToken(window: BrowserWindow, repoPermissionLevel: string): Promise\u003cany\u003e {"
+      },
+      {
+        "lineNumber": 21,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  return getAuthorizationCode(window, repoPermissionLevel).then((code) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 22,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    const accessTokenUrl \u003d `${ACCESS_TOKEN_URL}/${code}`;"
+      },
+      {
+        "lineNumber": 23,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    return fetch(accessTokenUrl).then(res \u003d\u003e res.json()).then(data \u003d\u003e {"
+      },
+      {
+        "lineNumber": 24,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      if (data.error) {"
+      },
+      {
+        "lineNumber": 25,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        throw(new Error(data.error));"
+      },
+      {
+        "lineNumber": 26,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 27,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      return data;"
+      },
+      {
+        "lineNumber": 28,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 29,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  }).catch(error \u003d\u003e {"
+      },
+      {
+        "lineNumber": 30,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    throw(error);"
+      },
+      {
+        "lineNumber": 31,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  });"
+      },
+      {
+        "lineNumber": 32,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "}"
+      },
+      {
+        "lineNumber": 33,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 34,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "/**"
+      },
+      {
+        "lineNumber": 35,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * Get the authorization code from Github after success login."
+      },
+      {
+        "lineNumber": 36,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * @param parentWindow - The main window of CATcher"
+      },
+      {
+        "lineNumber": 37,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " * @param repoPermissionLevel - The level of permission required to be granted by the user to use CATcher."
+      },
+      {
+        "lineNumber": 38,
+        "author": {
+          "gitId": "-"
+        },
+        "content": " */"
+      },
+      {
+        "lineNumber": 39,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "function getAuthorizationCode(parentWindow: BrowserWindow, repoPermissionLevel: string) {"
+      },
+      {
+        "lineNumber": 40,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  let state: string;"
+      },
+      {
+        "lineNumber": 41,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  state \u003d generateStateString();"
+      },
+      {
+        "lineNumber": 42,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  const oauthUrl \u003d encodeURI(`${BASE_URL}/login/oauth/authorize?client_id\u003d${CLIENT_ID}\u0026scope\u003d${repoPermissionLevel},read:user\u0026state\u003d${state}`);"
+      },
+      {
+        "lineNumber": 43,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 44,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  return new Promise(function (resolve, reject) {"
+      },
+      {
+        "lineNumber": 45,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    const windowParams \u003d {"
+      },
+      {
+        "lineNumber": 46,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      autoHideMenuBar: true,"
+      },
+      {
+        "lineNumber": 47,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      alwaysOnTop: false,"
+      },
+      {
+        "lineNumber": 48,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      fullscreenable: false,"
+      },
+      {
+        "lineNumber": 49,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      parent: parentWindow,"
+      },
+      {
+        "lineNumber": 50,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      webPreferences: {"
+      },
+      {
+        "lineNumber": 51,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        nodeIntegration: true"
+      },
+      {
+        "lineNumber": 52,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 53,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    };"
+      },
+      {
+        "lineNumber": 54,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow \u003d new BrowserWindow(windowParams);"
+      },
+      {
+        "lineNumber": 55,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.loadURL(oauthUrl);"
+      },
+      {
+        "lineNumber": 56,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.show();"
+      },
+      {
+        "lineNumber": 57,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 58,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.on(\u0027closed\u0027, (event) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 59,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      reject(new Error(\u0027WINDOW_CLOSED\u0027));"
+      },
+      {
+        "lineNumber": 60,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 61,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 62,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.webContents.on(\u0027will-navigate\u0027, (event, newUrl) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 63,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      if (newUrl.startsWith(CALLBACK_URL)) {"
+      },
+      {
+        "lineNumber": 64,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        onCallback(newUrl);"
+      },
+      {
+        "lineNumber": 65,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      } else {"
+      },
+      {
+        "lineNumber": 66,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        event.preventDefault();"
+      },
+      {
+        "lineNumber": 67,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        shell.openExternal(newUrl).then(() \u003d\u003e Logger.info(\u0027External link is clicked on auth window, opening system browser...\u0027));"
+      },
+      {
+        "lineNumber": 68,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 69,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 70,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 71,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.webContents.on(\u0027new-window\u0027, (event, url, frameName, disposition, options) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 72,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      event.preventDefault();"
+      },
+      {
+        "lineNumber": 73,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      shell.openExternal(url).then(() \u003d\u003e Logger.info(\u0027External link is clicked on auth window, opening system browser...\u0027));"
+      },
+      {
+        "lineNumber": 74,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 75,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 76,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    authWindow.webContents.on(\u0027will-redirect\u0027, (event, newUrl) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 77,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      if (newUrl.startsWith(CALLBACK_URL)) {"
+      },
+      {
+        "lineNumber": 78,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        onCallback(newUrl);"
+      },
+      {
+        "lineNumber": 79,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 80,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 81,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 82,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    function onCallback(callbackUrl: string) {"
+      },
+      {
+        "lineNumber": 83,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      const url_parts \u003d nodeUrl.parse(callbackUrl, true);"
+      },
+      {
+        "lineNumber": 84,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      const query \u003d url_parts.query;"
+      },
+      {
+        "lineNumber": 85,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      const code \u003d query.code;"
+      },
+      {
+        "lineNumber": 86,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      const error \u003d query.error;"
+      },
+      {
+        "lineNumber": 87,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "      const returnedState \u003d query.state;"
+      },
+      {
+        "lineNumber": 88,
+        "author": {
+          "gitId": "-"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 89,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "      if (error !\u003d\u003d undefined) {"
+      },
+      {
+        "lineNumber": 90,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        reject(error);"
+      },
+      {
+        "lineNumber": 91,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "      } else if (isReturnedStateSame(state, returnedState) \u0026\u0026 code) {"
+      },
+      {
+        "lineNumber": 92,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        resolve(code);"
+      },
+      {
+        "lineNumber": 93,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 94,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      setImmediate(function () {"
+      },
+      {
+        "lineNumber": 95,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        authWindow.close();"
+      },
+      {
+        "lineNumber": 96,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        authWindow.on(\u0027closed\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 97,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "          authWindow \u003d null;"
+      },
+      {
+        "lineNumber": 98,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        });"
+      },
+      {
+        "lineNumber": 99,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      });"
+      },
+      {
+        "lineNumber": 100,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    }"
+      },
+      {
+        "lineNumber": 101,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  });"
+      },
+      {
+        "lineNumber": 102,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "}"
+      },
+      {
+        "lineNumber": 103,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 104,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "/**"
+      },
+      {
+        "lineNumber": 105,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": " * Generates and assigns an unguessable random \u0027state\u0027 string to pass to Github for protection against cross-site request forgery attacks"
+      },
+      {
+        "lineNumber": 106,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": " */"
+      },
+      {
+        "lineNumber": 107,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "function generateStateString(): string {"
+      },
+      {
+        "lineNumber": 108,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  return uuid();"
+      },
+      {
+        "lineNumber": 109,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "}"
+      },
+      {
+        "lineNumber": 110,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 111,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "function isReturnedStateSame(state: string, returnedState: string): boolean {"
+      },
+      {
+        "lineNumber": 112,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  return state \u003d\u003d\u003d returnedState;"
+      },
+      {
+        "lineNumber": 113,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "}"
+      }
+    ],
+    "authorContributionMap": {
+      "kkangs0226": 17,
+      "-": 96
+    }
+  },
+  {
     "path": "electron-utils/supporting-logic.ts",
     "fileType": "ts",
     "lines": [
@@ -4590,1538 +5391,1587 @@
       {
         "lineNumber": 73,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": ""
+        "content": "    const state \u003d this.activatedRoute.snapshot.queryParamMap.get(\u0027state\u0027);"
       },
       {
         "lineNumber": 74,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.authService.isAuthenticated()) {"
+        "content": ""
       },
       {
         "lineNumber": 75,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.router.navigate([this.phaseService.currentPhase]);"
+        "content": "    if (this.authService.isAuthenticated()) {"
       },
       {
         "lineNumber": 76,
         "author": {
           "gitId": "-"
         },
-        "content": "      return;"
+        "content": "      this.router.navigate([this.phaseService.currentPhase]);"
       },
       {
         "lineNumber": 77,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      return;"
       },
       {
         "lineNumber": 78,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    }"
       },
       {
         "lineNumber": 79,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (oauthCode) { // In the web\u0027s oauth window"
+        "content": ""
       },
       {
         "lineNumber": 80,
         "author": {
           "gitId": "-"
         },
-        "content": "      window.opener.postMessage({ oauthCode }, AppConfig.origin);"
+        "content": "    if (oauthCode) { // In the web\u0027s oauth window"
       },
       {
         "lineNumber": 81,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "      this.listenForCloseOAuthWindowMessage();"
+        "content": "      window.opener.postMessage({ oauthCode, state }, AppConfig.origin);"
       },
       {
         "lineNumber": 82,
         "author": {
           "gitId": "-"
         },
-        "content": "    } else { // In the main app window"
+        "content": "      this.listenForCloseOAuthWindowMessage();"
       },
       {
         "lineNumber": 83,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.checkAppIsOutdated();"
+        "content": "    } else { // In the main app window"
       },
       {
         "lineNumber": 84,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.initAccessTokenSubscription();"
+        "content": "      this.checkAppIsOutdated();"
       },
       {
         "lineNumber": 85,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.initAuthStateSubscription();"
+        "content": "      this.initAccessTokenSubscription();"
       },
       {
         "lineNumber": 86,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.initProfileForm();"
+        "content": "      this.initAuthStateSubscription();"
       },
       {
         "lineNumber": 87,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      this.initProfileForm();"
       },
       {
         "lineNumber": 88,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    }"
       },
       {
         "lineNumber": 89,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  }"
       },
       {
         "lineNumber": 90,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": ""
       },
       {
         "lineNumber": 91,
         "author": {
           "gitId": "-"
         },
-        "content": "   * A listener for receiving the oauthCode from the oauth window."
+        "content": "  /**"
       },
       {
         "lineNumber": 92,
         "author": {
           "gitId": "-"
         },
-        "content": "   * With the oauth code, we can retrieve the accessToken from the proxy."
+        "content": "   * A listener for receiving the oauthCode from the oauth window."
       },
       {
         "lineNumber": 93,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * With the oauth code, we can retrieve the accessToken from the proxy."
       },
       {
         "lineNumber": 94,
         "author": {
           "gitId": "-"
         },
-        "content": "  @HostListener(\u0027window:message\u0027, [\u0027$event\u0027])"
+        "content": "   */"
       },
       {
         "lineNumber": 95,
         "author": {
           "gitId": "-"
         },
-        "content": "  onMessage(event: MessageEvent) {"
+        "content": "  @HostListener(\u0027window:message\u0027, [\u0027$event\u0027])"
       },
       {
         "lineNumber": 96,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (event.origin !\u003d\u003d AppConfig.origin) {"
+        "content": "  onMessage(event: MessageEvent) {"
       },
       {
         "lineNumber": 97,
         "author": {
           "gitId": "-"
         },
-        "content": "      return;"
+        "content": "    if (event.origin !\u003d\u003d AppConfig.origin) {"
       },
       {
         "lineNumber": 98,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      return;"
       },
       {
         "lineNumber": 99,
         "author": {
           "gitId": "-"
         },
-        "content": "    const { oauthCode } \u003d event.data;"
+        "content": "    }"
       },
       {
         "lineNumber": 100,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
         "content": ""
       },
       {
         "lineNumber": 101,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    if (!oauthCode) {"
+        "content": "    const { oauthCode, state } \u003d event.data;"
       },
       {
         "lineNumber": 102,
         "author": {
           "gitId": "-"
         },
-        "content": "      return;"
+        "content": ""
       },
       {
         "lineNumber": 103,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "    if (!oauthCode) {"
       },
       {
         "lineNumber": 104,
         "author": {
           "gitId": "-"
         },
-        "content": "    const accessTokenUrl \u003d `${AppConfig.accessTokenUrl}/${oauthCode}/client_id/${AppConfig.clientId}`;"
+        "content": "        return;"
       },
       {
         "lineNumber": 105,
         "author": {
           "gitId": "-"
         },
-        "content": "    fetch(accessTokenUrl).then(res \u003d\u003e res.json())"
+        "content": "    }"
       },
       {
         "lineNumber": 106,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "      .then(data \u003d\u003e {"
+        "content": ""
       },
       {
         "lineNumber": 107,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "          if (data.error) {"
+        "content": "    if (!this.authService.isReturnedStateSame(state)) {"
       },
       {
         "lineNumber": 108,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "            throw(new Error(data.error));"
+        "content": "      return;"
       },
       {
         "lineNumber": 109,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "          }"
+        "content": "    }"
       },
       {
         "lineNumber": 110,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "          this.authService.storeOAuthAccessToken(data.token);"
+        "content": ""
       },
       {
         "lineNumber": 111,
         "author": {
           "gitId": "-"
         },
-        "content": "        }"
+        "content": "    const accessTokenUrl \u003d `${AppConfig.accessTokenUrl}/${oauthCode}/client_id/${AppConfig.clientId}`;"
       },
       {
         "lineNumber": 112,
         "author": {
           "gitId": "-"
         },
-        "content": "      )"
+        "content": "    fetch(accessTokenUrl).then(res \u003d\u003e res.json())"
       },
       {
         "lineNumber": 113,
         "author": {
           "gitId": "-"
         },
-        "content": "      .catch(err \u003d\u003e {"
+        "content": "      .then(data \u003d\u003e {"
       },
       {
         "lineNumber": 114,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.errorHandlingService.handleError(err);"
+        "content": "          if (data.error) {"
       },
       {
         "lineNumber": 115,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.authService.changeAuthState(AuthState.NotAuthenticated);"
+        "content": "            throw(new Error(data.error));"
       },
       {
         "lineNumber": 116,
         "author": {
           "gitId": "-"
         },
-        "content": "      })"
+        "content": "          }"
       },
       {
         "lineNumber": 117,
         "author": {
           "gitId": "-"
         },
-        "content": "      .finally(() \u003d\u003e {"
+        "content": "          this.authService.storeOAuthAccessToken(data.token);"
       },
       {
         "lineNumber": 118,
         "author": {
           "gitId": "-"
         },
-        "content": "        if (!(event.source instanceof MessagePort) \u0026\u0026 !(event.source instanceof ServiceWorker)) {"
+        "content": "        }"
       },
       {
         "lineNumber": 119,
         "author": {
           "gitId": "-"
         },
-        "content": "          event.source.postMessage(\u0027close\u0027, AppConfig.origin);"
+        "content": "      )"
       },
       {
         "lineNumber": 120,
         "author": {
           "gitId": "-"
         },
-        "content": "        }"
+        "content": "      .catch(err \u003d\u003e {"
       },
       {
         "lineNumber": 121,
         "author": {
           "gitId": "-"
         },
-        "content": "      });"
+        "content": "        this.errorHandlingService.handleError(err);"
       },
       {
         "lineNumber": 122,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "        this.authService.changeAuthState(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 123,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "      })"
       },
       {
         "lineNumber": 124,
         "author": {
           "gitId": "-"
         },
-        "content": "  ngOnDestroy() {"
+        "content": "      .finally(() \u003d\u003e {"
       },
       {
         "lineNumber": 125,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.electronService.removeIpcListeners(\u0027github-oauth-reply\u0027);"
+        "content": "        if (!(event.source instanceof MessagePort) \u0026\u0026 !(event.source instanceof ServiceWorker)) {"
       },
       {
         "lineNumber": 126,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.authStateSubscription) {"
+        "content": "          event.source.postMessage(\u0027close\u0027, AppConfig.origin);"
       },
       {
         "lineNumber": 127,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.authStateSubscription.unsubscribe();"
+        "content": "        }"
       },
       {
         "lineNumber": 128,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      });"
       },
       {
         "lineNumber": 129,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.accessTokenSubscription) {"
+        "content": "  }"
       },
       {
         "lineNumber": 130,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.accessTokenSubscription.unsubscribe();"
+        "content": ""
       },
       {
         "lineNumber": 131,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "  ngOnDestroy() {"
       },
       {
         "lineNumber": 132,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.electronService.removeIpcListeners(\u0027github-oauth-reply\u0027);"
       },
       {
         "lineNumber": 133,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    if (this.authStateSubscription) {"
       },
       {
         "lineNumber": 134,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "      this.authStateSubscription.unsubscribe();"
       },
       {
         "lineNumber": 135,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Checks whether the current version of CATcher is outdated."
+        "content": "    }"
       },
       {
         "lineNumber": 136,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "    if (this.accessTokenSubscription) {"
       },
       {
         "lineNumber": 137,
         "author": {
           "gitId": "-"
         },
-        "content": "  checkAppIsOutdated(): void {"
+        "content": "      this.accessTokenSubscription.unsubscribe();"
       },
       {
         "lineNumber": 138,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.appService.isApplicationOutdated().subscribe((isOutdated: boolean) \u003d\u003e {"
+        "content": "    }"
       },
       {
         "lineNumber": 139,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.isAppOutdated \u003d isOutdated;"
+        "content": "  }"
       },
       {
         "lineNumber": 140,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.isReady \u003d true;"
+        "content": ""
       },
       {
         "lineNumber": 141,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.versionCheckingError \u003d false;"
+        "content": "  /**"
       },
       {
         "lineNumber": 142,
         "author": {
           "gitId": "-"
         },
-        "content": "    }, (error) \u003d\u003e {"
+        "content": "   * Checks whether the current version of CATcher is outdated."
       },
       {
         "lineNumber": 143,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.errorHandlingService.handleError(error);"
+        "content": "   */"
       },
       {
         "lineNumber": 144,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.isReady \u003d true;"
+        "content": "  checkAppIsOutdated(): void {"
       },
       {
         "lineNumber": 145,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.versionCheckingError \u003d true;"
+        "content": "    this.appService.isApplicationOutdated().subscribe((isOutdated: boolean) \u003d\u003e {"
       },
       {
         "lineNumber": 146,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "      this.isAppOutdated \u003d isOutdated;"
       },
       {
         "lineNumber": 147,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      this.isReady \u003d true;"
       },
       {
         "lineNumber": 148,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "      this.versionCheckingError \u003d false;"
       },
       {
         "lineNumber": 149,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "    }, (error) \u003d\u003e {"
       },
       {
         "lineNumber": 150,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Fills the login form with data from the given Profile."
+        "content": "      this.errorHandlingService.handleError(error);"
       },
       {
         "lineNumber": 151,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param profile - Profile selected by the user."
+        "content": "      this.isReady \u003d true;"
       },
       {
         "lineNumber": 152,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "      this.versionCheckingError \u003d true;"
       },
       {
         "lineNumber": 153,
         "author": {
           "gitId": "-"
         },
-        "content": "  onProfileSelect(profile: Profile): void {"
+        "content": "    });"
       },
       {
         "lineNumber": 154,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.profileForm.get(\u0027session\u0027).setValue(profile.encodedText);"
+        "content": "  }"
       },
       {
         "lineNumber": 155,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 156,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  /**"
       },
       {
         "lineNumber": 157,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "   * Fills the login form with data from the given Profile."
       },
       {
         "lineNumber": 158,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will complete the process of logging in the given user."
+        "content": "   * @param profile - Profile selected by the user."
       },
       {
         "lineNumber": 159,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param username - The user to log in."
+        "content": "   */"
       },
       {
         "lineNumber": 160,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "  onProfileSelect(profile: Profile): void {"
       },
       {
         "lineNumber": 161,
         "author": {
           "gitId": "-"
         },
-        "content": "  completeLoginProcess(username: string): void {"
+        "content": "    this.profileForm.get(\u0027session\u0027).setValue(profile.encodedText);"
       },
       {
         "lineNumber": 162,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authService.changeAuthState(AuthState.AwaitingAuthentication);"
+        "content": "  }"
       },
       {
         "lineNumber": 163,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseService.setPhaseOwners(this.currentSessionOrg, username);"
+        "content": ""
       },
       {
         "lineNumber": 164,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.userService.createUserModel(username).pipe("
+        "content": "  /**"
       },
       {
         "lineNumber": 165,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap(() \u003d\u003e this.phaseService.sessionSetup()),"
+        "content": "   * Will complete the process of logging in the given user."
       },
       {
         "lineNumber": 166,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap(() \u003d\u003e this.githubEventService.setLatestChangeEvent()),"
+        "content": "   * @param username - The user to log in."
       },
       {
         "lineNumber": 167,
         "author": {
           "gitId": "-"
         },
-        "content": "    ).subscribe(() \u003d\u003e {"
+        "content": "   */"
       },
       {
         "lineNumber": 168,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.handleAuthSuccess();"
+        "content": "  completeLoginProcess(username: string): void {"
       },
       {
         "lineNumber": 169,
         "author": {
           "gitId": "-"
         },
-        "content": "    }, (error) \u003d\u003e {"
+        "content": "    this.authService.changeAuthState(AuthState.AwaitingAuthentication);"
       },
       {
         "lineNumber": 170,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.authService.changeAuthState(AuthState.NotAuthenticated);"
+        "content": "    this.phaseService.setPhaseOwners(this.currentSessionOrg, username);"
       },
       {
         "lineNumber": 171,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.errorHandlingService.handleError(error);"
+        "content": "    this.userService.createUserModel(username).pipe("
       },
       {
         "lineNumber": 172,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "      flatMap(() \u003d\u003e this.phaseService.sessionSetup()),"
       },
       {
         "lineNumber": 173,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      flatMap(() \u003d\u003e this.githubEventService.setLatestChangeEvent()),"
       },
       {
         "lineNumber": 174,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    ).subscribe(() \u003d\u003e {"
       },
       {
         "lineNumber": 175,
         "author": {
           "gitId": "-"
         },
-        "content": "  setupSession() {"
+        "content": "      this.handleAuthSuccess();"
       },
       {
         "lineNumber": 176,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.profileForm.invalid) {"
+        "content": "    }, (error) \u003d\u003e {"
       },
       {
         "lineNumber": 177,
         "author": {
           "gitId": "-"
         },
-        "content": "      return;"
+        "content": "      this.authService.changeAuthState(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 178,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      this.errorHandlingService.handleError(error);"
       },
       {
         "lineNumber": 179,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.isSettingUpSession \u003d true;"
+        "content": "    });"
       },
       {
         "lineNumber": 180,
         "author": {
           "gitId": "-"
         },
-        "content": "    const sessionInformation: string \u003d this.profileForm.get(\u0027session\u0027).value;"
+        "content": "  }"
       },
       {
         "lineNumber": 181,
         "author": {
           "gitId": "-"
         },
-        "content": "    const org: string \u003d this.getOrgDetails(sessionInformation);"
+        "content": ""
       },
       {
         "lineNumber": 182,
         "author": {
           "gitId": "-"
         },
-        "content": "    const dataRepo: string \u003d this.getDataRepoDetails(sessionInformation);"
+        "content": "  setupSession() {"
       },
       {
         "lineNumber": 183,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubService.storeOrganizationDetails(org, dataRepo);"
+        "content": "    if (this.profileForm.invalid) {"
       },
       {
         "lineNumber": 184,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "      return;"
       },
       {
         "lineNumber": 185,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseService.storeSessionData().pipe("
+        "content": "    }"
       },
       {
         "lineNumber": 186,
         "author": {
           "gitId": "-"
         },
-        "content": "      throwIfFalse(isValidSession \u003d\u003e isValidSession,"
+        "content": "    this.isSettingUpSession \u003d true;"
       },
       {
         "lineNumber": 187,
         "author": {
           "gitId": "-"
         },
-        "content": "                   () \u003d\u003e new Error(\u0027Invalid Session\u0027))"
+        "content": "    const sessionInformation: string \u003d this.profileForm.get(\u0027session\u0027).value;"
       },
       {
         "lineNumber": 188,
         "author": {
           "gitId": "-"
         },
-        "content": "    ).subscribe(() \u003d\u003e {"
+        "content": "    const org: string \u003d this.getOrgDetails(sessionInformation);"
       },
       {
         "lineNumber": 189,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.authService.startOAuthProcess();"
+        "content": "    const dataRepo: string \u003d this.getDataRepoDetails(sessionInformation);"
       },
       {
         "lineNumber": 190,
         "author": {
           "gitId": "-"
         },
-        "content": "    }, (error) \u003d\u003e {"
+        "content": "    this.githubService.storeOrganizationDetails(org, dataRepo);"
       },
       {
         "lineNumber": 191,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.errorHandlingService.handleError(error);"
+        "content": ""
       },
       {
         "lineNumber": 192,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.isSettingUpSession \u003d false;"
+        "content": "    this.phaseService.storeSessionData().pipe("
       },
       {
         "lineNumber": 193,
         "author": {
           "gitId": "-"
         },
-        "content": "    }, () \u003d\u003e this.isSettingUpSession \u003d false);"
+        "content": "      throwIfFalse(isValidSession \u003d\u003e isValidSession,"
       },
       {
         "lineNumber": 194,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "                   () \u003d\u003e new Error(\u0027Invalid Session\u0027))"
       },
       {
         "lineNumber": 195,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    ).subscribe(() \u003d\u003e {"
       },
       {
         "lineNumber": 196,
         "author": {
           "gitId": "-"
         },
-        "content": "  logIntoAnotherAccount() {"
+        "content": "      this.authService.startOAuthProcess();"
       },
       {
         "lineNumber": 197,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.electronService.clearCookies();"
+        "content": "    }, (error) \u003d\u003e {"
       },
       {
         "lineNumber": 198,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authService.startOAuthProcess();"
+        "content": "      this.errorHandlingService.handleError(error);"
       },
       {
         "lineNumber": 199,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      this.isSettingUpSession \u003d false;"
       },
       {
         "lineNumber": 200,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    }, () \u003d\u003e this.isSettingUpSession \u003d false);"
       },
       {
         "lineNumber": 201,
         "author": {
           "gitId": "-"
         },
-        "content": "  onGithubWebsiteClicked() {"
+        "content": "  }"
       },
       {
         "lineNumber": 202,
         "author": {
           "gitId": "-"
         },
-        "content": "    window.open(\u0027https://github.com/\u0027, \u0027_blank\u0027);"
+        "content": ""
       },
       {
         "lineNumber": 203,
         "author": {
           "gitId": "-"
         },
-        "content": "    window.location.reload();"
+        "content": "  logIntoAnotherAccount() {"
       },
       {
         "lineNumber": 204,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.electronService.clearCookies();"
       },
       {
         "lineNumber": 205,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.authService.startOAuthProcess();"
       },
       {
         "lineNumber": 206,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 207,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Handles the clean up required after authentication and setting up of user data is completed."
+        "content": ""
       },
       {
         "lineNumber": 208,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "  onGithubWebsiteClicked() {"
       },
       {
         "lineNumber": 209,
         "author": {
           "gitId": "-"
         },
-        "content": "  handleAuthSuccess() {"
+        "content": "    window.open(\u0027https://github.com/\u0027, \u0027_blank\u0027);"
       },
       {
         "lineNumber": 210,
         "author": {
-          "gitId": "kkangs0226"
+          "gitId": "-"
         },
-        "content": "    this.authService.setTitleWithPhaseDetail();"
+        "content": "    window.location.reload();"
       },
       {
         "lineNumber": 211,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.router.navigateByUrl(this.phaseService.currentPhase);"
+        "content": "  }"
       },
       {
         "lineNumber": 212,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authService.changeAuthState(AuthState.Authenticated);"
+        "content": ""
       },
       {
         "lineNumber": 213,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  /**"
       },
       {
         "lineNumber": 214,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "   * Handles the clean up required after authentication and setting up of user data is completed."
       },
       {
         "lineNumber": 215,
         "author": {
           "gitId": "-"
         },
-        "content": "  goToSessionSelect() {"
+        "content": "   */"
       },
       {
         "lineNumber": 216,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authService.changeAuthState(AuthState.NotAuthenticated);"
+        "content": "  handleAuthSuccess() {"
       },
       {
         "lineNumber": 217,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "  }"
+        "content": "    this.authService.setTitleWithPhaseDetail();"
       },
       {
         "lineNumber": 218,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.router.navigateByUrl(this.phaseService.currentPhase);"
       },
       {
         "lineNumber": 219,
         "author": {
           "gitId": "-"
         },
-        "content": "  isUserNotAuthenticated(): boolean {"
+        "content": "    this.authService.changeAuthState(AuthState.Authenticated);"
       },
       {
         "lineNumber": 220,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.authState \u003d\u003d\u003d AuthState.NotAuthenticated;"
+        "content": "  }"
       },
       {
         "lineNumber": 221,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 222,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  goToSessionSelect() {"
       },
       {
         "lineNumber": 223,
         "author": {
           "gitId": "-"
         },
-        "content": "  isUserAuthenticating(): boolean {"
+        "content": "    this.authService.changeAuthState(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 224,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.authState \u003d\u003d\u003d AuthState.AwaitingAuthentication;"
+        "content": "  }"
       },
       {
         "lineNumber": 225,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 226,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  isUserNotAuthenticated(): boolean {"
       },
       {
         "lineNumber": 227,
         "author": {
           "gitId": "-"
         },
-        "content": "  isAwaitingOAuthUserConfirm(): boolean {"
+        "content": "    return this.authState \u003d\u003d\u003d AuthState.NotAuthenticated;"
       },
       {
         "lineNumber": 228,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.authState \u003d\u003d\u003d AuthState.ConfirmOAuthUser;"
+        "content": "  }"
       },
       {
         "lineNumber": 229,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 230,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  isUserAuthenticating(): boolean {"
       },
       {
         "lineNumber": 231,
         "author": {
           "gitId": "-"
         },
-        "content": "  get currentSessionOrg(): string {"
+        "content": "    return this.authState \u003d\u003d\u003d AuthState.AwaitingAuthentication;"
       },
       {
         "lineNumber": 232,
         "author": {
           "gitId": "-"
         },
-        "content": "    const sessionInformation: string \u003d this.profileForm.get(\u0027session\u0027).value;"
+        "content": "  }"
       },
       {
         "lineNumber": 233,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.getOrgDetails(sessionInformation);"
+        "content": ""
       },
       {
         "lineNumber": 234,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  isAwaitingOAuthUserConfirm(): boolean {"
       },
       {
         "lineNumber": 235,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    return this.authState \u003d\u003d\u003d AuthState.ConfirmOAuthUser;"
       },
       {
         "lineNumber": 236,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 237,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will wait for the message from parent window to close the window."
+        "content": ""
       },
       {
         "lineNumber": 238,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "  get currentSessionOrg(): string {"
       },
       {
         "lineNumber": 239,
         "author": {
           "gitId": "-"
         },
-        "content": "  private listenForCloseOAuthWindowMessage() {"
+        "content": "    const sessionInformation: string \u003d this.profileForm.get(\u0027session\u0027).value;"
       },
       {
         "lineNumber": 240,
         "author": {
           "gitId": "-"
         },
-        "content": "    window.addEventListener(\u0027message\u0027, (event) \u003d\u003e {"
+        "content": "    return this.getOrgDetails(sessionInformation);"
       },
       {
         "lineNumber": 241,
         "author": {
           "gitId": "-"
         },
-        "content": "      if (event.origin !\u003d\u003d AppConfig.origin) {"
+        "content": "  }"
       },
       {
         "lineNumber": 242,
         "author": {
           "gitId": "-"
         },
-        "content": "        return;"
+        "content": ""
       },
       {
         "lineNumber": 243,
         "author": {
           "gitId": "-"
         },
-        "content": "      }"
+        "content": "  /**"
       },
       {
         "lineNumber": 244,
         "author": {
           "gitId": "-"
         },
-        "content": "      if (event.data \u003d\u003d\u003d \u0027close\u0027) {"
+        "content": "   * Will wait for the message from parent window to close the window."
       },
       {
         "lineNumber": 245,
         "author": {
           "gitId": "-"
         },
-        "content": "        window.opener.focus();"
+        "content": "   */"
       },
       {
         "lineNumber": 246,
         "author": {
           "gitId": "-"
         },
-        "content": "        window.close();"
+        "content": "  private listenForCloseOAuthWindowMessage() {"
       },
       {
         "lineNumber": 247,
         "author": {
           "gitId": "-"
         },
-        "content": "      }"
+        "content": "    window.addEventListener(\u0027message\u0027, (event) \u003d\u003e {"
       },
       {
         "lineNumber": 248,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "      if (event.origin !\u003d\u003d AppConfig.origin) {"
       },
       {
         "lineNumber": 249,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "        return;"
       },
       {
         "lineNumber": 250,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "      }"
       },
       {
         "lineNumber": 251,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "      if (event.data \u003d\u003d\u003d \u0027close\u0027) {"
       },
       {
         "lineNumber": 252,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Extracts the Organization Details from the input sessionInformation."
+        "content": "        window.opener.focus();"
       },
       {
         "lineNumber": 253,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param sessionInformation - string in the format of \u0027orgName/dataRepo\u0027"
+        "content": "        window.close();"
       },
       {
         "lineNumber": 254,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "      }"
       },
       {
         "lineNumber": 255,
         "author": {
           "gitId": "-"
         },
-        "content": "  private getOrgDetails(sessionInformation: string) {"
+        "content": "    });"
       },
       {
         "lineNumber": 256,
         "author": {
           "gitId": "-"
         },
-        "content": "    return sessionInformation.split(\u0027/\u0027)[0];"
+        "content": "  }"
       },
       {
         "lineNumber": 257,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 258,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  /**"
       },
       {
         "lineNumber": 259,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "   * Extracts the Organization Details from the input sessionInformation."
       },
       {
         "lineNumber": 260,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Extracts the Data Repository Details from the input sessionInformation."
+        "content": "   * @param sessionInformation - string in the format of \u0027orgName/dataRepo\u0027"
       },
       {
         "lineNumber": 261,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param sessionInformation - string in the format of \u0027orgName/dataRepo\u0027"
+        "content": "   */"
       },
       {
         "lineNumber": 262,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "  private getOrgDetails(sessionInformation: string) {"
       },
       {
         "lineNumber": 263,
         "author": {
           "gitId": "-"
         },
-        "content": "  private getDataRepoDetails(sessionInformation: string) {"
+        "content": "    return sessionInformation.split(\u0027/\u0027)[0];"
       },
       {
         "lineNumber": 264,
         "author": {
           "gitId": "-"
         },
-        "content": "    return sessionInformation.split(\u0027/\u0027)[1];"
+        "content": "  }"
       },
       {
         "lineNumber": 265,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 266,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  /**"
       },
       {
         "lineNumber": 267,
         "author": {
           "gitId": "-"
         },
-        "content": "  private initProfileForm() {"
+        "content": "   * Extracts the Data Repository Details from the input sessionInformation."
       },
       {
         "lineNumber": 268,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.profileForm \u003d this.formBuilder.group({"
+        "content": "   * @param sessionInformation - string in the format of \u0027orgName/dataRepo\u0027"
       },
       {
         "lineNumber": 269,
         "author": {
           "gitId": "-"
         },
-        "content": "      session: [\u0027\u0027, Validators.required],"
+        "content": "   */"
       },
       {
         "lineNumber": 270,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "  private getDataRepoDetails(sessionInformation: string) {"
       },
       {
         "lineNumber": 271,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    return sessionInformation.split(\u0027/\u0027)[1];"
       },
       {
         "lineNumber": 272,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  }"
       },
       {
         "lineNumber": 273,
         "author": {
           "gitId": "-"
         },
-        "content": "  private initAuthStateSubscription() {"
+        "content": ""
       },
       {
         "lineNumber": 274,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authStateSubscription \u003d this.authService.currentAuthState.subscribe((state) \u003d\u003e {"
+        "content": "  private initProfileForm() {"
       },
       {
         "lineNumber": 275,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.ngZone.run(() \u003d\u003e {"
+        "content": "    this.profileForm \u003d this.formBuilder.group({"
       },
       {
         "lineNumber": 276,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.authState \u003d state;"
+        "content": "      session: [\u0027\u0027, Validators.required],"
       },
       {
         "lineNumber": 277,
         "author": {
           "gitId": "-"
         },
-        "content": "      });"
+        "content": "    });"
       },
       {
         "lineNumber": 278,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "  }"
       },
       {
         "lineNumber": 279,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 280,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  private initAuthStateSubscription() {"
       },
       {
         "lineNumber": 281,
         "author": {
           "gitId": "-"
         },
-        "content": "  private initAccessTokenSubscription() {"
+        "content": "    this.authStateSubscription \u003d this.authService.currentAuthState.subscribe((state) \u003d\u003e {"
       },
       {
         "lineNumber": 282,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.accessTokenSubscription \u003d this.authService.accessToken.pipe("
+        "content": "      this.ngZone.run(() \u003d\u003e {"
       },
       {
         "lineNumber": 283,
         "author": {
           "gitId": "-"
         },
-        "content": "      filter((token: string) \u003d\u003e !!token),"
+        "content": "        this.authState \u003d state;"
       },
       {
         "lineNumber": 284,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap(() \u003d\u003e this.userService.getAuthenticatedUser())"
+        "content": "      });"
       },
       {
         "lineNumber": 285,
         "author": {
           "gitId": "-"
         },
-        "content": "    ).subscribe((user: GithubUser) \u003d\u003e {"
+        "content": "    });"
       },
       {
         "lineNumber": 286,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.ngZone.run(() \u003d\u003e {"
+        "content": "  }"
       },
       {
         "lineNumber": 287,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.currentUserName \u003d user.login;"
+        "content": ""
       },
       {
         "lineNumber": 288,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.authService.changeAuthState(AuthState.ConfirmOAuthUser);"
+        "content": "  private initAccessTokenSubscription() {"
       },
       {
         "lineNumber": 289,
         "author": {
           "gitId": "-"
         },
-        "content": "      });"
+        "content": "    this.accessTokenSubscription \u003d this.authService.accessToken.pipe("
       },
       {
         "lineNumber": 290,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "      filter((token: string) \u003d\u003e !!token),"
       },
       {
         "lineNumber": 291,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      flatMap(() \u003d\u003e this.userService.getAuthenticatedUser())"
       },
       {
         "lineNumber": 292,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    ).subscribe((user: GithubUser) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 293,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      this.ngZone.run(() \u003d\u003e {"
+      },
+      {
+        "lineNumber": 294,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        this.currentUserName \u003d user.login;"
+      },
+      {
+        "lineNumber": 295,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        this.authService.changeAuthState(AuthState.ConfirmOAuthUser);"
+      },
+      {
+        "lineNumber": 296,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      });"
+      },
+      {
+        "lineNumber": 297,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 298,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  }"
+      },
+      {
+        "lineNumber": 299,
         "author": {
           "gitId": "-"
         },
@@ -6129,8 +6979,8 @@
       }
     ],
     "authorContributionMap": {
-      "kkangs0226": 1,
-      "-": 291
+      "kkangs0226": 10,
+      "-": 289
     }
   },
   {
@@ -11034,756 +11884,756 @@
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "import { uuid } from \u0027../../shared/lib/uuid\u0027;"
       },
       {
         "lineNumber": 20,
         "author": {
           "gitId": "-"
         },
-        "content": "export enum AuthState { \u0027NotAuthenticated\u0027, \u0027AwaitingAuthentication\u0027, \u0027ConfirmOAuthUser\u0027, \u0027Authenticated\u0027}"
+        "content": ""
       },
       {
         "lineNumber": 21,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "export enum AuthState { \u0027NotAuthenticated\u0027, \u0027AwaitingAuthentication\u0027, \u0027ConfirmOAuthUser\u0027, \u0027Authenticated\u0027}"
       },
       {
         "lineNumber": 22,
         "author": {
           "gitId": "-"
         },
-        "content": "@Injectable({"
+        "content": ""
       },
       {
         "lineNumber": 23,
         "author": {
           "gitId": "-"
         },
-        "content": "  providedIn: \u0027root\u0027"
+        "content": "@Injectable({"
       },
       {
         "lineNumber": 24,
         "author": {
           "gitId": "-"
         },
-        "content": "})"
+        "content": "  providedIn: \u0027root\u0027"
       },
       {
         "lineNumber": 25,
         "author": {
           "gitId": "-"
         },
-        "content": "export class AuthService {"
+        "content": "})"
       },
       {
         "lineNumber": 26,
         "author": {
           "gitId": "-"
         },
-        "content": "  authStateSource \u003d new BehaviorSubject(AuthState.NotAuthenticated);"
+        "content": "export class AuthService {"
       },
       {
         "lineNumber": 27,
         "author": {
           "gitId": "-"
         },
-        "content": "  currentAuthState \u003d this.authStateSource.asObservable();"
+        "content": "  authStateSource \u003d new BehaviorSubject(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 28,
         "author": {
           "gitId": "-"
         },
-        "content": "  accessToken \u003d new BehaviorSubject(undefined);"
+        "content": "  currentAuthState \u003d this.authStateSource.asObservable();"
       },
       {
         "lineNumber": 29,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  accessToken \u003d new BehaviorSubject(undefined);"
       },
       {
         "lineNumber": 30,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "  constructor(private electronService: ElectronService, private router: Router, private ngZone: NgZone,"
+        "content": "  private state: string;"
       },
       {
         "lineNumber": 31,
         "author": {
           "gitId": "-"
         },
-        "content": "              private http: HttpClient,  private errorHandlingService: ErrorHandlingService,"
+        "content": ""
       },
       {
         "lineNumber": 32,
         "author": {
           "gitId": "-"
         },
-        "content": "              private githubService: GithubService,"
+        "content": "  constructor(private electronService: ElectronService, private router: Router, private ngZone: NgZone,"
       },
       {
         "lineNumber": 33,
         "author": {
           "gitId": "-"
         },
-        "content": "              private userService: UserService,"
+        "content": "              private http: HttpClient,  private errorHandlingService: ErrorHandlingService,"
       },
       {
         "lineNumber": 34,
         "author": {
           "gitId": "-"
         },
-        "content": "              private issueService: IssueService,"
+        "content": "              private githubService: GithubService,"
       },
       {
         "lineNumber": 35,
         "author": {
           "gitId": "-"
         },
-        "content": "              private phaseService: PhaseService,"
+        "content": "              private userService: UserService,"
       },
       {
         "lineNumber": 36,
         "author": {
           "gitId": "-"
         },
-        "content": "              private labelService: LabelService,"
+        "content": "              private issueService: IssueService,"
       },
       {
         "lineNumber": 37,
         "author": {
           "gitId": "-"
         },
-        "content": "              private dataService: DataService,"
+        "content": "              private phaseService: PhaseService,"
       },
       {
         "lineNumber": 38,
         "author": {
           "gitId": "-"
         },
-        "content": "              private githubEventService: GithubEventService,"
+        "content": "              private labelService: LabelService,"
       },
       {
         "lineNumber": 39,
         "author": {
           "gitId": "-"
         },
-        "content": "              private titleService: Title,"
+        "content": "              private dataService: DataService,"
       },
       {
         "lineNumber": 40,
         "author": {
           "gitId": "-"
         },
-        "content": "              private logger: LoggingService) {}"
+        "content": "              private githubEventService: GithubEventService,"
       },
       {
         "lineNumber": 41,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "              private titleService: Title,"
       },
       {
         "lineNumber": 42,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "              private logger: LoggingService) {}"
       },
       {
         "lineNumber": 43,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will store the OAuth token."
+        "content": ""
       },
       {
         "lineNumber": 44,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "  /**"
       },
       {
         "lineNumber": 45,
         "author": {
           "gitId": "-"
         },
-        "content": "  storeOAuthAccessToken(token: string) {"
+        "content": "   * Will store the OAuth token."
       },
       {
         "lineNumber": 46,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubService.storeOAuthAccessToken(token);"
+        "content": "   */"
       },
       {
         "lineNumber": 47,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.accessToken.next(token);"
+        "content": "  storeOAuthAccessToken(token: string) {"
       },
       {
         "lineNumber": 48,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.githubService.storeOAuthAccessToken(token);"
       },
       {
         "lineNumber": 49,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.accessToken.next(token);"
       },
       {
         "lineNumber": 50,
         "author": {
           "gitId": "-"
         },
-        "content": "  reset(): void {"
+        "content": "  }"
       },
       {
         "lineNumber": 51,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.accessToken.next(undefined);"
+        "content": ""
       },
       {
         "lineNumber": 52,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.changeAuthState(AuthState.NotAuthenticated);"
+        "content": "  reset(): void {"
       },
       {
         "lineNumber": 53,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.ngZone.run(() \u003d\u003e this.router.navigate([\u0027\u0027]));"
+        "content": "    this.accessToken.next(undefined);"
       },
       {
         "lineNumber": 54,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.changeAuthState(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 55,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.ngZone.run(() \u003d\u003e this.router.navigate([\u0027\u0027]));"
       },
       {
         "lineNumber": 56,
         "author": {
           "gitId": "-"
         },
-        "content": "  logOut(): void {"
+        "content": "  }"
       },
       {
         "lineNumber": 57,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubService.reset();"
+        "content": ""
       },
       {
         "lineNumber": 58,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.userService.reset();"
+        "content": "  logOut(): void {"
       },
       {
         "lineNumber": 59,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.issueService.reset();"
+        "content": "    this.githubService.reset();"
       },
       {
         "lineNumber": 60,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseService.reset();"
+        "content": "    this.userService.reset();"
       },
       {
         "lineNumber": 61,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.dataService.reset();"
+        "content": "    this.issueService.reset();"
       },
       {
         "lineNumber": 62,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubEventService.reset();"
+        "content": "    this.phaseService.reset();"
       },
       {
         "lineNumber": 63,
         "author": {
-          "gitId": "kkangs0226"
+          "gitId": "-"
         },
-        "content": "    this.setLandingPageTitle();"
+        "content": "    this.dataService.reset();"
       },
       {
         "lineNumber": 64,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.issueService.setIssueTeamFilter(\u0027All Teams\u0027);"
+        "content": "    this.githubEventService.reset();"
       },
       {
         "lineNumber": 65,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    this.reset();"
+        "content": "    this.setLandingPageTitle();"
       },
       {
         "lineNumber": 66,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.issueService.setIssueTeamFilter(\u0027All Teams\u0027);"
       },
       {
         "lineNumber": 67,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.reset();"
       },
       {
         "lineNumber": 68,
         "author": {
-          "gitId": "kkangs0226"
+          "gitId": "-"
         },
-        "content": "  setTitleWithPhaseDetail(): void {"
+        "content": "  }"
       },
       {
         "lineNumber": 69,
         "author": {
-          "gitId": "kkangs0226"
+          "gitId": "-"
         },
-        "content": "    const appSetting \u003d require(\u0027../../../../package.json\u0027);"
+        "content": ""
       },
       {
         "lineNumber": 70,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": "    const title \u003d `${appSetting.name} ${appSetting.version} - ${this.phaseService.getPhaseDetail()}`;"
+        "content": "  setTitleWithPhaseDetail(): void {"
       },
       {
         "lineNumber": 71,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": "    this.titleService.setTitle(title);"
+        "content": "    const appSetting \u003d require(\u0027../../../../package.json\u0027);"
       },
       {
         "lineNumber": 72,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "    const title \u003d `${appSetting.name} ${appSetting.version} - ${this.phaseService.getPhaseDetail()}`;"
+      },
+      {
+        "lineNumber": 73,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "    this.titleService.setTitle(title);"
+      },
+      {
+        "lineNumber": 74,
         "author": {
           "gitId": "-"
         },
         "content": "  }"
       },
       {
-        "lineNumber": 73,
+        "lineNumber": 75,
         "author": {
           "gitId": "-"
         },
         "content": ""
-      },
-      {
-        "lineNumber": 74,
-        "author": {
-          "gitId": "kkangs0226"
-        },
-        "content": "  setLandingPageTitle(): void {"
-      },
-      {
-        "lineNumber": 75,
-        "author": {
-          "gitId": "kkangs0226"
-        },
-        "content": "    const appSetting \u003d require(\u0027../../../../package.json\u0027);"
       },
       {
         "lineNumber": 76,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": "    const title \u003d `${appSetting.name} ${appSetting.version}`;"
+        "content": "  setLandingPageTitle(): void {"
       },
       {
         "lineNumber": 77,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": "    this.titleService.setTitle(title);"
+        "content": "    const appSetting \u003d require(\u0027../../../../package.json\u0027);"
       },
       {
         "lineNumber": 78,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": "  }"
+        "content": "    const title \u003d `${appSetting.name} ${appSetting.version}`;"
       },
       {
         "lineNumber": 79,
         "author": {
           "gitId": "kkangs0226"
         },
-        "content": ""
+        "content": "    this.titleService.setTitle(title);"
       },
       {
         "lineNumber": 80,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "  isAuthenticated(): boolean {"
+        "content": "  }"
       },
       {
         "lineNumber": 81,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    return this.authStateSource.getValue() \u003d\u003d\u003d AuthState.Authenticated;"
+        "content": ""
       },
       {
         "lineNumber": 82,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  isAuthenticated(): boolean {"
       },
       {
         "lineNumber": 83,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    return this.authStateSource.getValue() \u003d\u003d\u003d AuthState.Authenticated;"
       },
       {
         "lineNumber": 84,
         "author": {
           "gitId": "-"
         },
-        "content": "  changeAuthState(newAuthState: AuthState) {"
+        "content": "  }"
       },
       {
         "lineNumber": 85,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (newAuthState \u003d\u003d\u003d AuthState.Authenticated) {"
+        "content": ""
       },
       {
         "lineNumber": 86,
         "author": {
-          "gitId": "dingyuchen"
+          "gitId": "-"
         },
-        "content": "      const sessionId \u003d generateSessionId();"
+        "content": "  changeAuthState(newAuthState: AuthState) {"
       },
       {
         "lineNumber": 87,
         "author": {
           "gitId": "-"
         },
-        "content": "      this.issueService.setSessionId(sessionId);"
+        "content": "    if (newAuthState \u003d\u003d\u003d AuthState.Authenticated) {"
       },
       {
         "lineNumber": 88,
         "author": {
-          "gitId": "-"
+          "gitId": "dingyuchen"
         },
-        "content": "      this.logger.info(`Successfully authenticated with session: ${sessionId}`);"
+        "content": "      const sessionId \u003d generateSessionId();"
       },
       {
         "lineNumber": 89,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "      this.issueService.setSessionId(sessionId);"
       },
       {
         "lineNumber": 90,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.authStateSource.next(newAuthState);"
+        "content": "      this.logger.info(`Successfully authenticated with session: ${sessionId}`);"
       },
       {
         "lineNumber": 91,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    }"
       },
       {
         "lineNumber": 92,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.authStateSource.next(newAuthState);"
       },
       {
         "lineNumber": 93,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 94,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will start the Github OAuth web flow process."
+        "content": ""
       },
       {
         "lineNumber": 95,
         "author": {
-          "gitId": "-"
-        },
-        "content": "   */"
-      },
-      {
-        "lineNumber": 96,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "  startOAuthProcess() {"
-      },
-      {
-        "lineNumber": 97,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "    const githubRepoPermission \u003d this.phaseService.githubRepoPermissionLevel();"
-      },
-      {
-        "lineNumber": 98,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "    this.changeAuthState(AuthState.AwaitingAuthentication);"
-      },
-      {
-        "lineNumber": 99,
-        "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
         "content": ""
       },
       {
+        "lineNumber": 96,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  /**"
+      },
+      {
+        "lineNumber": 97,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "   * Generates and assigns an unguessable random \u0027state\u0027 string to pass to Github for protection against cross-site request forgery attacks"
+      },
+      {
+        "lineNumber": 98,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "   */"
+      },
+      {
+        "lineNumber": 99,
+        "author": {
+          "gitId": "kkangs0226"
+        },
+        "content": "  generateStateString() {"
+      },
+      {
         "lineNumber": 100,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    if (this.electronService.isElectron()) {"
+        "content": "    this.state \u003d uuid();"
       },
       {
         "lineNumber": 101,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "      this.electronService.sendIpcMessage(\u0027github-oauth\u0027, githubRepoPermission);"
+        "content": "  }"
       },
       {
         "lineNumber": 102,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    } else {"
+        "content": ""
       },
       {
         "lineNumber": 103,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "      this.createOauthWindow(encodeURI("
+        "content": "  isReturnedStateSame(returnedState: string): boolean {"
       },
       {
         "lineNumber": 104,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "        `${AppConfig.githubUrl}/login/oauth/authorize?client_id\u003d${AppConfig.clientId}\u0026scope\u003d${githubRepoPermission},read:user`"
+        "content": "    return returnedState \u003d\u003d\u003d this.state;"
       },
       {
         "lineNumber": 105,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "      ));"
+        "content": "  }"
       },
       {
         "lineNumber": 106,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "    }"
+        "content": ""
       },
       {
         "lineNumber": 107,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  /**"
       },
       {
         "lineNumber": 108,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "   * Will start the Github OAuth web flow process."
       },
       {
         "lineNumber": 109,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "   */"
       },
       {
         "lineNumber": 110,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will do a poll on whether the given window is closed."
+        "content": "  startOAuthProcess() {"
       },
       {
         "lineNumber": 111,
         "author": {
           "gitId": "-"
         },
-        "content": "   * If it is closed and user is still not authenticated, change the auth status to not authenticated."
+        "content": "    const githubRepoPermission \u003d this.phaseService.githubRepoPermissionLevel();"
       },
       {
         "lineNumber": 112,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "    this.changeAuthState(AuthState.AwaitingAuthentication);"
       },
       {
         "lineNumber": 113,
         "author": {
           "gitId": "-"
         },
-        "content": "  private confirmWindowClosed(window: Window): void {"
+        "content": ""
       },
       {
         "lineNumber": 114,
         "author": {
           "gitId": "-"
         },
-        "content": "    const authService \u003d this;"
+        "content": "    if (this.electronService.isElectron()) {"
       },
       {
         "lineNumber": 115,
         "author": {
           "gitId": "-"
         },
-        "content": "    const pollTimer \u003d window.setInterval(function() {"
+        "content": "      this.electronService.sendIpcMessage(\u0027github-oauth\u0027, githubRepoPermission);"
       },
       {
         "lineNumber": 116,
         "author": {
           "gitId": "-"
         },
-        "content": "      if (window.closed) {"
+        "content": "    } else {"
       },
       {
         "lineNumber": 117,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "        window.clearInterval(pollTimer);"
+        "content": "      this.generateStateString();"
       },
       {
         "lineNumber": 118,
         "author": {
           "gitId": "-"
         },
-        "content": "        if (!authService.accessToken) {"
+        "content": "      this.createOauthWindow(encodeURI("
       },
       {
         "lineNumber": 119,
         "author": {
-          "gitId": "-"
+          "gitId": "kkangs0226"
         },
-        "content": "          authService.changeAuthState(AuthState.NotAuthenticated);"
+        "content": "        `${AppConfig.githubUrl}/login/oauth/authorize?client_id\u003d${AppConfig.clientId}\u0026scope\u003d${githubRepoPermission},read:user\u0026state\u003d${this.state}`"
       },
       {
         "lineNumber": 120,
         "author": {
           "gitId": "-"
         },
-        "content": "        }"
+        "content": "      ));"
       },
       {
         "lineNumber": 121,
         "author": {
           "gitId": "-"
         },
-        "content": "      }"
+        "content": "    }"
       },
       {
         "lineNumber": 122,
         "author": {
           "gitId": "-"
         },
-        "content": "    }, 1000);"
+        "content": "  }"
       },
       {
         "lineNumber": 123,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 124,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  /**"
       },
       {
         "lineNumber": 125,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "   * Will do a poll on whether the given window is closed."
       },
       {
         "lineNumber": 126,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will create a web version of oauth window."
+        "content": "   * If it is closed and user is still not authenticated, change the auth status to not authenticated."
       },
       {
         "lineNumber": 127,
@@ -11797,143 +12647,248 @@
         "author": {
           "gitId": "-"
         },
-        "content": "  private createOauthWindow("
+        "content": "  private confirmWindowClosed(window: Window): void {"
       },
       {
         "lineNumber": 129,
         "author": {
           "gitId": "-"
         },
-        "content": "    url: string,"
+        "content": "    const authService \u003d this;"
       },
       {
         "lineNumber": 130,
         "author": {
           "gitId": "-"
         },
-        "content": "    width: number \u003d 500,"
+        "content": "    const pollTimer \u003d window.setInterval(function() {"
       },
       {
         "lineNumber": 131,
         "author": {
           "gitId": "-"
         },
-        "content": "    height: number \u003d 600,"
+        "content": "      if (window.closed) {"
       },
       {
         "lineNumber": 132,
         "author": {
           "gitId": "-"
         },
-        "content": "    left: number \u003d 0,"
+        "content": "        window.clearInterval(pollTimer);"
       },
       {
         "lineNumber": 133,
         "author": {
           "gitId": "-"
         },
-        "content": "    top: number \u003d 0"
+        "content": "        if (!authService.accessToken) {"
       },
       {
         "lineNumber": 134,
         "author": {
           "gitId": "-"
         },
-        "content": "  ): void {"
+        "content": "          authService.changeAuthState(AuthState.NotAuthenticated);"
       },
       {
         "lineNumber": 135,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (url \u003d\u003d null) {"
+        "content": "        }"
       },
       {
         "lineNumber": 136,
         "author": {
           "gitId": "-"
         },
-        "content": "      return;"
+        "content": "      }"
       },
       {
         "lineNumber": 137,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "    }, 1000);"
       },
       {
         "lineNumber": 138,
         "author": {
           "gitId": "-"
         },
-        "content": "    const options \u003d `width\u003d${width},height\u003d${height},left\u003d${left},top\u003d${top}`;"
+        "content": "  }"
       },
       {
         "lineNumber": 139,
         "author": {
           "gitId": "-"
         },
-        "content": "    const oauthWindow \u003d window.open(`${url}`, \u0027Authorization\u0027, options);"
+        "content": ""
       },
       {
         "lineNumber": 140,
         "author": {
           "gitId": "-"
         },
-        "content": "    const authService \u003d this;"
+        "content": "  /**"
       },
       {
         "lineNumber": 141,
         "author": {
           "gitId": "-"
         },
-        "content": "    oauthWindow.addEventListener(\u0027unload\u0027, () \u003d\u003e {"
+        "content": "   * Will create a web version of oauth window."
       },
       {
         "lineNumber": 142,
         "author": {
           "gitId": "-"
         },
-        "content": "      if (!oauthWindow.closed) {"
+        "content": "   */"
       },
       {
         "lineNumber": 143,
         "author": {
           "gitId": "-"
         },
-        "content": "        // unload event could be triggered when there is a redirection, hence, a confirmation needed."
+        "content": "  private createOauthWindow("
       },
       {
         "lineNumber": 144,
         "author": {
           "gitId": "-"
         },
-        "content": "        authService.confirmWindowClosed(oauthWindow);"
+        "content": "    url: string,"
       },
       {
         "lineNumber": 145,
         "author": {
           "gitId": "-"
         },
-        "content": "      }"
+        "content": "    width: number \u003d 500,"
       },
       {
         "lineNumber": 146,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "    height: number \u003d 600,"
       },
       {
         "lineNumber": 147,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    left: number \u003d 0,"
       },
       {
         "lineNumber": 148,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    top: number \u003d 0"
+      },
+      {
+        "lineNumber": 149,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  ): void {"
+      },
+      {
+        "lineNumber": 150,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    if (url \u003d\u003d null) {"
+      },
+      {
+        "lineNumber": 151,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      return;"
+      },
+      {
+        "lineNumber": 152,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    }"
+      },
+      {
+        "lineNumber": 153,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    const options \u003d `width\u003d${width},height\u003d${height},left\u003d${left},top\u003d${top}`;"
+      },
+      {
+        "lineNumber": 154,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    const oauthWindow \u003d window.open(`${url}`, \u0027Authorization\u0027, options);"
+      },
+      {
+        "lineNumber": 155,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    const authService \u003d this;"
+      },
+      {
+        "lineNumber": 156,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    oauthWindow.addEventListener(\u0027unload\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 157,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      if (!oauthWindow.closed) {"
+      },
+      {
+        "lineNumber": 158,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        // unload event could be triggered when there is a redirection, hence, a confirmation needed."
+      },
+      {
+        "lineNumber": 159,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "        authService.confirmWindowClosed(oauthWindow);"
+      },
+      {
+        "lineNumber": 160,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "      }"
+      },
+      {
+        "lineNumber": 161,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 162,
+        "author": {
+          "gitId": "-"
+        },
+        "content": "  }"
+      },
+      {
+        "lineNumber": 163,
         "author": {
           "gitId": "-"
         },
@@ -11941,7 +12896,7 @@
       }
     ],
     "authorContributionMap": {
-      "kkangs0226": 11,
+      "kkangs0226": 26,
       "dingyuchen": 2,
       "-": 135
     }
