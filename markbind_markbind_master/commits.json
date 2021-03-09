@@ -284,6 +284,22 @@
             }
           }
         ]
+      },
+      {
+        "date": "2021-03-08",
+        "commitResults": [
+          {
+            "hash": "1ecbf9a2cf9a268516d60e6f7e30e52bb2dd74e1",
+            "messageTitle": "Add support for PR previews using Surge (#1487)",
+            "messageBody": "Netlify\u0027s deploy preview feature may not be suitable for certain\r\nMarkbind users due to its limited build minutes.\r\n\r\nExpanding support for PR previews via Surge would cater to such\r\nusers due to its unlimited build minutes.\r\n\r\nLet\u0027s add instructions in the userGuide for setting up PR\r\npreviews with Surge.",
+            "fileTypesAndContributionMap": {
+              "md": {
+                "insertions": 169,
+                "deletions": 1
+              }
+            }
+          }
+        ]
       }
     ],
     "teikjun": [],
@@ -525,6 +541,37 @@
               "vue": {
                 "insertions": 1,
                 "deletions": 1
+              }
+            }
+          }
+        ]
+      },
+      {
+        "date": "2021-03-08",
+        "commitResults": [
+          {
+            "hash": "640d18be106b5ca8b0b6ab0a60a21b3d19139b67",
+            "messageTitle": "Update header slots for Vue components (#1502)",
+            "messageBody": "There aren\u0027t many benefits from having internal _header slots.\r\nFurthermore, it is causing a minor bug in box header slot.\r\n\r\nLet\u0027s convert them to just header for conciseness and to prevent\r\nrelated bugs in the future.",
+            "fileTypesAndContributionMap": {
+              "vue": {
+                "insertions": 7,
+                "deletions": 13
+              },
+              "js": {
+                "insertions": 39,
+                "deletions": 40
+              }
+            }
+          },
+          {
+            "hash": "341c3c597957a1f75b3b8f949a94d2be4cf5d5f6",
+            "messageTitle": "Update intralink auto-conversion for links with URL fragment (#1493)",
+            "messageBody": "The intralink auto-conversion function does not account for links which\r\nhave URL fragment.\r\n\r\nLet\u0027s update it to convert links with URL fragment as well.",
+            "fileTypesAndContributionMap": {
+              "js": {
+                "insertions": 50,
+                "deletions": 8
               }
             }
           }
@@ -1027,7 +1074,7 @@
       "js": 285,
       "css": 6,
       "json": 1,
-      "md": 231,
+      "md": 391,
       "mbd": 0,
       "mbdf": 57,
       "njk": 0,
@@ -1050,7 +1097,7 @@
     },
     "wxwxwxwx9": {
       "java": 0,
-      "js": 537,
+      "js": 616,
       "css": 6,
       "json": 0,
       "md": 32,
@@ -1058,7 +1105,7 @@
       "mbdf": 81,
       "njk": 3,
       "py": 0,
-      "vue": 108,
+      "vue": 112,
       "yml": 0
     },
     "seanlowjk": {
@@ -1084,7 +1131,7 @@
       "mbdf": 43,
       "njk": 0,
       "py": 0,
-      "vue": 762,
+      "vue": 760,
       "yml": 0
     },
     "AdithyaNarayan": {
@@ -1120,21 +1167,21 @@
     "kkangs0226": 0.0,
     "ptvrajsk": 0.0,
     "halfwhole": 0.0,
-    "dcshzj": 12.49872,
+    "dcshzj": 12.37246,
     "gerhean": 0.0,
     "rolandyuwy": 0.0,
     "HCY123902": 0.0,
     "jianhandev": 0.0,
     "Derek-Hardy": 0.0,
-    "daongochieu2810": 264.47272,
+    "daongochieu2810": 261.80124,
     "dingyuchen": 0.0,
-    "raysonkoh": 2208.8767,
+    "raysonkoh": 2441.771,
     "teikjun": 0.0,
-    "wxwxwxwx9": 2769.754,
+    "wxwxwxwx9": 2952.5435,
     "seanlowjk": 0.0,
-    "jonahtanjz": 24703.906,
+    "jonahtanjz": 24462.486,
     "AdithyaNarayan": 0.0,
-    "ryoarmanda": 3918.7205
+    "ryoarmanda": 3879.4548
   },
   "authorDisplayNameMap": {
     "moziliar": "MO Z..GRAN",

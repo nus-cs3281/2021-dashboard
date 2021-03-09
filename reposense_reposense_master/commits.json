@@ -355,6 +355,22 @@
             }
           }
         ]
+      },
+      {
+        "date": "2021-03-08",
+        "commitResults": [
+          {
+            "hash": "3973bf045156f484bc53ca0b896b940eea1ee044",
+            "messageTitle": "[#1468] Dashboard loading empty if base URL is given (#1469)",
+            "messageBody": "Repositories with more than 19 different types of files will crash,\r\nwhich can be traced from line 448 of `v_summary.js`.\r\n\r\nBug is caused by a function not being copied properly in #1421,\r\nleading to an undefined function call.\r\n\r\nLet\u0027s copy the function over properly.",
+            "fileTypesAndContributionMap": {
+              "js": {
+                "insertions": 4,
+                "deletions": 3
+              }
+            }
+          }
+        ]
       }
     ],
     "rolandyuwy": [
@@ -651,7 +667,7 @@
     },
     "gerhean": {
       "java": 0,
-      "js": 440,
+      "js": 443,
       "scss": 9,
       "json": 4,
       "md": 1,
@@ -821,13 +837,13 @@
   "authorContributionVariance": {
     "moziliar": 0.0,
     "t-cheepeng": 0.0,
-    "kkangs0226": 0.09182697,
+    "kkangs0226": 0.09089992,
     "ptvrajsk": 0.0,
     "halfwhole": 0.0,
-    "dcshzj": 3107.9211,
-    "gerhean": 2660.1843,
-    "rolandyuwy": 0.20235947,
-    "HCY123902": 243.8648,
+    "dcshzj": 3076.9448,
+    "gerhean": 2633.2874,
+    "rolandyuwy": 0.20033313,
+    "HCY123902": 241.44559,
     "jianhandev": 0.0,
     "Derek-Hardy": 0.0,
     "daongochieu2810": 0.0,

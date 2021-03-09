@@ -29324,1454 +29324,1412 @@
       {
         "lineNumber": 14,
         "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { RepoCreatorService } from \u0027./repo-creator.service\u0027;"
+      },
+      {
+        "lineNumber": 15,
+        "author": {
           "gitId": "-"
         },
         "content": ""
       },
       {
-        "lineNumber": 15,
+        "lineNumber": 16,
         "author": {
           "gitId": "seanlowjk"
         },
         "content": "export const SESSION_AVALIABILITY_FIX_FAILED \u003d \u0027Session Availability Fix failed.\u0027;"
       },
       {
-        "lineNumber": 16,
+        "lineNumber": 17,
         "author": {
           "gitId": "-"
         },
         "content": ""
-      },
-      {
-        "lineNumber": 17,
-        "author": {
-          "gitId": "ptvrajsk"
-        },
-        "content": "export const PhaseDescription \u003d {"
       },
       {
         "lineNumber": 18,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "  [Phase.phaseBugReporting]: \u0027Bug Reporting Phase\u0027,"
+        "content": "export const PhaseDescription \u003d {"
       },
       {
         "lineNumber": 19,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "  [Phase.phaseTeamResponse]: \u0027Team\\\u0027s Response Phase\u0027,"
+        "content": "  [Phase.phaseBugReporting]: \u0027Bug Reporting Phase\u0027,"
       },
       {
         "lineNumber": 20,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "  [Phase.phaseTesterResponse]: \u0027Tester\\\u0027s Response Phase\u0027,"
+        "content": "  [Phase.phaseTeamResponse]: \u0027Team\\\u0027s Response Phase\u0027,"
       },
       {
         "lineNumber": 21,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "  [Phase.phaseModeration]: \u0027Moderation Phase\u0027"
+        "content": "  [Phase.phaseTesterResponse]: \u0027Tester\\\u0027s Response Phase\u0027,"
       },
       {
         "lineNumber": 22,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "};"
+        "content": "  [Phase.phaseModeration]: \u0027Moderation Phase\u0027"
       },
       {
         "lineNumber": 23,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": ""
+        "content": "};"
       },
       {
         "lineNumber": 24,
         "author": {
           "gitId": "-"
         },
-        "content": "@Injectable({"
+        "content": ""
       },
       {
         "lineNumber": 25,
         "author": {
           "gitId": "-"
         },
-        "content": "  providedIn: \u0027root\u0027,"
+        "content": "@Injectable({"
       },
       {
         "lineNumber": 26,
         "author": {
           "gitId": "-"
         },
-        "content": "})"
+        "content": "  providedIn: \u0027root\u0027,"
       },
       {
         "lineNumber": 27,
         "author": {
           "gitId": "-"
         },
-        "content": "export class PhaseService {"
+        "content": "})"
       },
       {
         "lineNumber": 28,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "export class PhaseService {"
       },
       {
         "lineNumber": 29,
         "author": {
           "gitId": "-"
         },
-        "content": "  public currentPhase: Phase;"
+        "content": ""
       },
       {
         "lineNumber": 30,
         "author": {
           "gitId": "-"
         },
-        "content": "  private repoName: string;"
+        "content": "  public currentPhase: Phase;"
       },
       {
         "lineNumber": 31,
         "author": {
           "gitId": "-"
         },
-        "content": "  private orgName: string;"
+        "content": "  private repoName: string;"
       },
       {
         "lineNumber": 32,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  private orgName: string;"
       },
       {
         "lineNumber": 33,
         "author": {
           "gitId": "-"
         },
-        "content": "  public sessionData: SessionData;"
+        "content": ""
       },
       {
         "lineNumber": 34,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  public sessionData: SessionData;"
       },
       {
         "lineNumber": 35,
         "author": {
           "gitId": "-"
         },
-        "content": "  private phaseRepoOwners \u003d {"
+        "content": ""
       },
       {
         "lineNumber": 36,
         "author": {
           "gitId": "-"
         },
-        "content": "    phaseBugReporting: \u0027\u0027,"
+        "content": "  private phaseRepoOwners \u003d {"
       },
       {
         "lineNumber": 37,
         "author": {
           "gitId": "-"
         },
-        "content": "    phaseTeamResponse: \u0027\u0027,"
+        "content": "    phaseBugReporting: \u0027\u0027,"
       },
       {
         "lineNumber": 38,
         "author": {
           "gitId": "-"
         },
-        "content": "    phaseTesterResponse: \u0027\u0027,"
+        "content": "    phaseTeamResponse: \u0027\u0027,"
       },
       {
         "lineNumber": 39,
         "author": {
           "gitId": "-"
         },
-        "content": "    phaseModeration: \u0027\u0027"
+        "content": "    phaseTesterResponse: \u0027\u0027,"
       },
       {
         "lineNumber": 40,
         "author": {
           "gitId": "-"
         },
-        "content": "  };"
+        "content": "    phaseModeration: \u0027\u0027"
       },
       {
         "lineNumber": 41,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  };"
       },
       {
         "lineNumber": 42,
         "author": {
           "gitId": "-"
         },
-        "content": "  constructor(private http: HttpClient,"
+        "content": ""
       },
       {
         "lineNumber": 43,
         "author": {
           "gitId": "-"
         },
-        "content": "              private githubService: GithubService,"
+        "content": "  constructor(private http: HttpClient,"
       },
       {
         "lineNumber": 44,
         "author": {
           "gitId": "-"
         },
-        "content": "              private labelService: LabelService,"
+        "content": "              private githubService: GithubService,"
       },
       {
         "lineNumber": 45,
         "author": {
           "gitId": "-"
         },
-        "content": "              private userService: UserService,"
+        "content": "              private labelService: LabelService,"
       },
       {
         "lineNumber": 46,
         "author": {
           "gitId": "-"
         },
-        "content": "              public phaseFixConfirmationDialog: MatDialog) {}"
+        "content": "              private userService: UserService,"
       },
       {
         "lineNumber": 47,
         "author": {
-          "gitId": "-"
+          "gitId": "seanlowjk"
         },
-        "content": "  /**"
+        "content": "              private repoCreatorService: RepoCreatorService,"
       },
       {
         "lineNumber": 48,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Stores the location of the repositories belonging to"
+        "content": "              public phaseFixConfirmationDialog: MatDialog) {}"
       },
       {
         "lineNumber": 49,
         "author": {
           "gitId": "-"
         },
-        "content": "   * each phase of the application."
+        "content": "  /**"
       },
       {
         "lineNumber": 50,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param org - name of organization."
+        "content": "   * Stores the location of the repositories belonging to"
       },
       {
         "lineNumber": 51,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param user - name of user."
+        "content": "   * each phase of the application."
       },
       {
         "lineNumber": 52,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * @param org - name of organization."
       },
       {
         "lineNumber": 53,
         "author": {
           "gitId": "-"
         },
-        "content": "  setPhaseOwners(org: string, user: string): void {"
+        "content": "   * @param user - name of user."
       },
       {
         "lineNumber": 54,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.orgName \u003d org;"
+        "content": "   */"
       },
       {
         "lineNumber": 55,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseRepoOwners.phaseBugReporting \u003d user;"
+        "content": "  setPhaseOwners(org: string, user: string): void {"
       },
       {
         "lineNumber": 56,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseRepoOwners.phaseTeamResponse \u003d org;"
+        "content": "    this.orgName \u003d org;"
       },
       {
         "lineNumber": 57,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseRepoOwners.phaseTesterResponse \u003d user;"
+        "content": "    this.phaseRepoOwners.phaseBugReporting \u003d user;"
       },
       {
         "lineNumber": 58,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.phaseRepoOwners.phaseModeration \u003d org;"
+        "content": "    this.phaseRepoOwners.phaseTeamResponse \u003d org;"
       },
       {
         "lineNumber": 59,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.phaseRepoOwners.phaseTesterResponse \u003d user;"
       },
       {
         "lineNumber": 60,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.phaseRepoOwners.phaseModeration \u003d org;"
       },
       {
         "lineNumber": 61,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 62,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Returns the name of the owner of a given phase."
+        "content": ""
       },
       {
         "lineNumber": 63,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param phase"
+        "content": "  /**"
       },
       {
         "lineNumber": 64,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Returns the name of the owner of a given phase."
       },
       {
         "lineNumber": 65,
         "author": {
           "gitId": "-"
         },
-        "content": "  getPhaseOwner(phase: string): string {"
+        "content": "   * @param phase"
       },
       {
         "lineNumber": 66,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.phaseRepoOwners[phase];"
+        "content": "   */"
       },
       {
         "lineNumber": 67,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  getPhaseOwner(phase: string): string {"
       },
       {
         "lineNumber": 68,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    return this.phaseRepoOwners[phase];"
       },
       {
         "lineNumber": 69,
         "author": {
           "gitId": "-"
         },
-        "content": "  fetchSessionData(): Observable\u003cSessionData\u003e {"
+        "content": "  }"
       },
       {
         "lineNumber": 70,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.githubService.fetchSettingsFile().pipe("
+        "content": ""
       },
       {
         "lineNumber": 71,
         "author": {
           "gitId": "-"
         },
-        "content": "      map(data \u003d\u003e data as SessionData)"
+        "content": "  fetchSessionData(): Observable\u003cSessionData\u003e {"
       },
       {
         "lineNumber": 72,
         "author": {
           "gitId": "-"
         },
-        "content": "    );"
+        "content": "    return this.githubService.fetchSettingsFile().pipe("
       },
       {
         "lineNumber": 73,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      map(data \u003d\u003e data as SessionData)"
       },
       {
         "lineNumber": 74,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    );"
       },
       {
         "lineNumber": 75,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 76,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Will fetch session data and update phase service with it."
+        "content": ""
       },
       {
         "lineNumber": 77,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @returns - If the session is valid return true, else false"
+        "content": "  /**"
       },
       {
         "lineNumber": 78,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Will fetch session data and update phase service with it."
       },
       {
         "lineNumber": 79,
         "author": {
           "gitId": "-"
         },
-        "content": "  storeSessionData(): Observable\u003cboolean\u003e {"
+        "content": "   * @returns - If the session is valid return true, else false"
       },
       {
         "lineNumber": 80,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.fetchSessionData().pipe("
+        "content": "   */"
       },
       {
         "lineNumber": 81,
         "author": {
           "gitId": "-"
         },
-        "content": "      assertSessionDataIntegrity(),"
+        "content": "  storeSessionData(): Observable\u003cboolean\u003e {"
       },
       {
         "lineNumber": 82,
         "author": {
           "gitId": "-"
         },
-        "content": "      map((sessionData: SessionData) \u003d\u003e {"
+        "content": "    return this.fetchSessionData().pipe("
       },
       {
         "lineNumber": 83,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.updateSessionParameters(sessionData);"
+        "content": "      assertSessionDataIntegrity(),"
       },
       {
         "lineNumber": 84,
         "author": {
           "gitId": "-"
         },
-        "content": "        return this.currentPhase !\u003d\u003d undefined;"
+        "content": "      map((sessionData: SessionData) \u003d\u003e {"
       },
       {
         "lineNumber": 85,
         "author": {
           "gitId": "-"
         },
-        "content": "      })"
+        "content": "        this.updateSessionParameters(sessionData);"
       },
       {
         "lineNumber": 86,
         "author": {
           "gitId": "-"
         },
-        "content": "    );"
+        "content": "        return this.currentPhase !\u003d\u003d undefined;"
       },
       {
         "lineNumber": 87,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      })"
       },
       {
         "lineNumber": 88,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    );"
       },
       {
         "lineNumber": 89,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 90,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Determines the github\u0027s level of repo permission required for the phase."
+        "content": ""
       },
       {
         "lineNumber": 91,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Ref: https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes"
+        "content": "  /**"
       },
       {
         "lineNumber": 92,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Determines the github\u0027s level of repo permission required for the phase."
       },
       {
         "lineNumber": 93,
         "author": {
           "gitId": "-"
         },
-        "content": "  githubRepoPermissionLevel(): string {"
+        "content": "   * Ref: https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes"
       },
       {
         "lineNumber": 94,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.sessionData.openPhases.includes(Phase.phaseModeration)) {"
+        "content": "   */"
       },
       {
         "lineNumber": 95,
         "author": {
           "gitId": "-"
         },
-        "content": "      return \u0027repo\u0027;"
+        "content": "  githubRepoPermissionLevel(): string {"
       },
       {
         "lineNumber": 96,
         "author": {
           "gitId": "-"
         },
-        "content": "    } else {"
+        "content": "    if (this.sessionData.openPhases.includes(Phase.phaseModeration)) {"
       },
       {
         "lineNumber": 97,
         "author": {
           "gitId": "-"
         },
-        "content": "      return \u0027public_repo\u0027;"
+        "content": "      return \u0027repo\u0027;"
       },
       {
         "lineNumber": 98,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "    } else {"
       },
       {
         "lineNumber": 99,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      return \u0027public_repo\u0027;"
       },
       {
         "lineNumber": 100,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    }"
       },
       {
         "lineNumber": 101,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 102,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Checks if the necessary repository is available and creates it if the permissions are available."
+        "content": ""
       },
       {
         "lineNumber": 103,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param sessionData"
+        "content": "  /**"
       },
       {
         "lineNumber": 104,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Checks if the necessary repository is available and creates it if the permissions are available."
       },
       {
         "lineNumber": 105,
         "author": {
           "gitId": "-"
         },
-        "content": "  verifySessionAvailability(sessionData: SessionData): Observable\u003cboolean\u003e {"
+        "content": "   * @param sessionData"
       },
       {
         "lineNumber": 106,
         "author": {
           "gitId": "-"
         },
-        "content": "    return this.githubService.isRepositoryPresent(this.phaseRepoOwners[this.currentPhase], sessionData[this.currentPhase]);"
+        "content": "   */"
       },
       {
         "lineNumber": 107,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "  verifySessionAvailability(sessionData: SessionData): Observable\u003cboolean\u003e {"
       },
       {
         "lineNumber": 108,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    return this.githubService.isRepositoryPresent(this.phaseRepoOwners[this.currentPhase], sessionData[this.currentPhase]);"
       },
       {
         "lineNumber": 109,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 110,
         "author": {
           "gitId": "-"
         },
-        "content": "   * If a Session is unavailable (because the repository is missing) attempt to create IF it is"
+        "content": ""
       },
       {
         "lineNumber": 111,
         "author": {
           "gitId": "-"
         },
-        "content": "   * the BugReporting Phase"
+        "content": "  /**"
       },
       {
         "lineNumber": 112,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param sessionData - SessionData containing repository information."
+        "content": "   * If a Session is unavailable (because the repository is missing) attempt to create IF it is"
       },
       {
         "lineNumber": 113,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @return - Dummy Observable to give the API sometime to propagate the creation of the new repository since"
+        "content": "   * the BugReporting Phase"
       },
       {
         "lineNumber": 114,
         "author": {
           "gitId": "-"
         },
-        "content": "   *           the API Call used here does not return any response."
+        "content": "   * @param sessionData - SessionData containing repository information."
       },
       {
         "lineNumber": 115,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * @return - Dummy Observable to give the API sometime to propagate the creation of the new repository since"
       },
       {
         "lineNumber": 116,
         "author": {
           "gitId": "-"
         },
-        "content": "  attemptSessionAvailabilityFix(sessionData: SessionData): Observable\u003cany\u003e {"
+        "content": "   *           the API Call used here does not return any response."
       },
       {
         "lineNumber": 117,
         "author": {
           "gitId": "-"
         },
-        "content": "    if (this.currentPhase !\u003d\u003d Phase.phaseBugReporting) {"
+        "content": "   */"
       },
       {
         "lineNumber": 118,
         "author": {
           "gitId": "-"
         },
-        "content": "      throw new Error(\u0027Current Phase\\\u0027s Repository has not been opened.\u0027);"
+        "content": "  attemptSessionAvailabilityFix(sessionData: SessionData): Observable\u003cany\u003e {"
       },
       {
         "lineNumber": 119,
         "author": {
           "gitId": "-"
         },
-        "content": "    } else if (this.currentPhase \u003d\u003d\u003d Phase.phaseBugReporting \u0026\u0026 this.userService.currentUser.role !\u003d\u003d UserRole.Student) {"
+        "content": "    if (this.currentPhase !\u003d\u003d Phase.phaseBugReporting) {"
       },
       {
         "lineNumber": 120,
         "author": {
           "gitId": "-"
         },
-        "content": "      throw new Error(\u0027Bug-Reporting Phase\\\u0027s repository initialisation is only available to Students.\u0027);"
+        "content": "      throw new Error(\u0027Current Phase\\\u0027s Repository has not been opened.\u0027);"
       },
       {
         "lineNumber": 121,
         "author": {
           "gitId": "-"
         },
-        "content": "    }"
+        "content": "    } else if (this.currentPhase \u003d\u003d\u003d Phase.phaseBugReporting \u0026\u0026 this.userService.currentUser.role !\u003d\u003d UserRole.Student) {"
       },
       {
         "lineNumber": 122,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubService.createRepository(sessionData[this.currentPhase]);"
+        "content": "      throw new Error(\u0027Bug-Reporting Phase\\\u0027s repository initialisation is only available to Students.\u0027);"
       },
       {
         "lineNumber": 123,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    }"
       },
       {
         "lineNumber": 124,
         "author": {
           "gitId": "-"
         },
-        "content": "    return new Observable(subscriber \u003d\u003e {"
+        "content": "    this.githubService.createRepository(sessionData[this.currentPhase]);"
       },
       {
         "lineNumber": 125,
         "author": {
           "gitId": "-"
         },
-        "content": "      setTimeout(() \u003d\u003e subscriber.next(true), 1000);"
+        "content": ""
       },
       {
         "lineNumber": 126,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "    return new Observable(subscriber \u003d\u003e {"
       },
       {
         "lineNumber": 127,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "      setTimeout(() \u003d\u003e subscriber.next(true), 1000);"
       },
       {
         "lineNumber": 128,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    });"
       },
       {
         "lineNumber": 129,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  }"
       },
       {
         "lineNumber": 130,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": ""
       },
       {
         "lineNumber": 131,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Stores session data and sets current session\u0027s phase."
+        "content": ""
       },
       {
         "lineNumber": 132,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @param sessionData"
+        "content": "  /**"
       },
       {
         "lineNumber": 133,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Stores session data and sets current session\u0027s phase."
       },
       {
         "lineNumber": 134,
         "author": {
           "gitId": "-"
         },
-        "content": "  updateSessionParameters(sessionData: SessionData) {"
+        "content": "   * @param sessionData"
       },
       {
         "lineNumber": 135,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.sessionData \u003d sessionData;"
+        "content": "   */"
       },
       {
         "lineNumber": 136,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.currentPhase \u003d Phase[sessionData.openPhases[0]];"
+        "content": "  updateSessionParameters(sessionData: SessionData) {"
       },
       {
         "lineNumber": 137,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.repoName \u003d sessionData[sessionData.openPhases[0]];"
+        "content": "    this.sessionData \u003d sessionData;"
       },
       {
         "lineNumber": 138,
         "author": {
           "gitId": "-"
         },
-        "content": "    this.githubService.storePhaseDetails(this.phaseRepoOwners[this.currentPhase], this.repoName);"
+        "content": "    this.currentPhase \u003d Phase[sessionData.openPhases[0]];"
       },
       {
         "lineNumber": 139,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": "    this.repoName \u003d sessionData[sessionData.openPhases[0]];"
       },
       {
         "lineNumber": 140,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    this.githubService.storePhaseDetails(this.phaseRepoOwners[this.currentPhase], this.repoName);"
       },
       {
         "lineNumber": 141,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": "  }"
       },
       {
         "lineNumber": 142,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Launches the SessionFixConfirmation Dialog."
+        "content": ""
       },
       {
         "lineNumber": 143,
         "author": {
           "gitId": "-"
         },
-        "content": "   * @return Observable\u003cboolean\u003e - Representing user\u0027s permission grant."
+        "content": "  /**"
       },
       {
         "lineNumber": 144,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Launches the SessionFixConfirmation Dialog."
       },
       {
         "lineNumber": 145,
         "author": {
           "gitId": "-"
         },
-        "content": "  openSessionFixConfirmation(): Observable\u003cboolean\u003e {"
+        "content": "   * @return Observable\u003cboolean\u003e - Representing user\u0027s permission grant."
       },
       {
         "lineNumber": 146,
         "author": {
           "gitId": "-"
         },
-        "content": "    const dialogRef \u003d this.phaseFixConfirmationDialog.open(SessionFixConfirmationComponent, {"
+        "content": "   */"
       },
       {
         "lineNumber": 147,
         "author": {
           "gitId": "-"
         },
-        "content": "      data: {user: this.userService.currentUser.loginId, repoName: this.sessionData[this.currentPhase]}"
+        "content": "  openSessionFixConfirmation(): Observable\u003cboolean\u003e {"
       },
       {
         "lineNumber": 148,
         "author": {
           "gitId": "-"
         },
-        "content": "    });"
+        "content": "    const dialogRef \u003d this.phaseFixConfirmationDialog.open(SessionFixConfirmationComponent, {"
       },
       {
         "lineNumber": 149,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "      data: {user: this.userService.currentUser.loginId, repoName: this.sessionData[this.currentPhase]}"
       },
       {
         "lineNumber": 150,
         "author": {
           "gitId": "-"
         },
-        "content": "    return dialogRef.afterClosed();"
+        "content": "    });"
       },
       {
         "lineNumber": 151,
         "author": {
           "gitId": "-"
         },
-        "content": "  }"
+        "content": ""
       },
       {
         "lineNumber": 152,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "    return dialogRef.afterClosed();"
       },
       {
         "lineNumber": 153,
         "author": {
           "gitId": "-"
         },
-        "content": ""
+        "content": "  }"
       },
       {
         "lineNumber": 154,
         "author": {
           "gitId": "-"
         },
-        "content": "  /**"
+        "content": ""
       },
       {
         "lineNumber": 155,
         "author": {
           "gitId": "-"
         },
-        "content": "   * Ensures that the necessary data for the current session is available"
+        "content": ""
       },
       {
         "lineNumber": 156,
         "author": {
           "gitId": "-"
         },
-        "content": "   * and synchronized with the remote server."
+        "content": "  /**"
       },
       {
         "lineNumber": 157,
         "author": {
           "gitId": "-"
         },
-        "content": "   */"
+        "content": "   * Ensures that the necessary data for the current session is available"
       },
       {
         "lineNumber": 158,
         "author": {
           "gitId": "-"
         },
-        "content": "  sessionSetup(): Observable\u003cany\u003e {"
+        "content": "   * and synchronized with the remote server."
       },
       {
         "lineNumber": 159,
         "author": {
-          "gitId": "ptvrajsk"
+          "gitId": "-"
         },
-        "content": "    // Permission Caching Mechanism to prevent repeating permission request."
+        "content": "   */"
       },
       {
         "lineNumber": 160,
         "author": {
-          "gitId": "ptvrajsk"
+          "gitId": "-"
         },
-        "content": "    let isSessionFixPermissionGranted \u003d false;"
+        "content": "  sessionSetup(): Observable\u003cany\u003e {"
       },
       {
         "lineNumber": 161,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "    const cacheSessionFixPermission \u003d () \u003d\u003e {"
+        "content": "    // Permission Caching Mechanism to prevent repeating permission request."
       },
       {
         "lineNumber": 162,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "      return pipe("
+        "content": "    let isSessionFixPermissionGranted \u003d false;"
       },
       {
         "lineNumber": 163,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "        tap((sessionFixPermission: boolean | null) \u003d\u003e {"
+        "content": "    const cacheSessionFixPermission \u003d () \u003d\u003e {"
       },
       {
         "lineNumber": 164,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "          isSessionFixPermissionGranted \u003d sessionFixPermission ? sessionFixPermission : false;"
+        "content": "      return pipe("
       },
       {
         "lineNumber": 165,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "        })"
+        "content": "        tap((sessionFixPermission: boolean | null) \u003d\u003e {"
       },
       {
         "lineNumber": 166,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "      );"
+        "content": "          isSessionFixPermissionGranted \u003d sessionFixPermission ? sessionFixPermission : false;"
       },
       {
         "lineNumber": 167,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "    };"
+        "content": "        })"
       },
       {
         "lineNumber": 168,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": ""
+        "content": "      );"
       },
       {
         "lineNumber": 169,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": "    return this.fetchSessionData().pipe("
+        "content": "    };"
       },
       {
         "lineNumber": 170,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": "      assertSessionDataIntegrity(),"
+        "content": ""
       },
       {
         "lineNumber": 171,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap((sessionData: SessionData) \u003d\u003e {"
+        "content": "    return this.fetchSessionData().pipe("
       },
       {
         "lineNumber": 172,
         "author": {
           "gitId": "-"
         },
-        "content": "        this.updateSessionParameters(sessionData);"
+        "content": "      assertSessionDataIntegrity(),"
       },
       {
         "lineNumber": 173,
         "author": {
           "gitId": "-"
         },
-        "content": "        return this.verifySessionAvailability(sessionData);"
+        "content": "      flatMap((sessionData: SessionData) \u003d\u003e {"
       },
       {
         "lineNumber": 174,
         "author": {
           "gitId": "-"
         },
-        "content": "      }),"
+        "content": "        this.updateSessionParameters(sessionData);"
       },
       {
         "lineNumber": 175,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap((isSessionAvailable: boolean) \u003d\u003e {"
+        "content": "        return this.verifySessionAvailability(sessionData);"
       },
       {
         "lineNumber": 176,
         "author": {
           "gitId": "-"
         },
-        "content": "        if (!isSessionAvailable \u0026\u0026 this.currentPhase \u003d\u003d\u003d Phase.phaseBugReporting) {"
+        "content": "      }),"
       },
       {
         "lineNumber": 177,
         "author": {
-          "gitId": "ptvrajsk"
+          "gitId": "-"
         },
-        "content": "          if (isSessionFixPermissionGranted) {"
+        "content": "      flatMap((isSessionAvailable: boolean) \u003d\u003e {"
       },
       {
         "lineNumber": 178,
         "author": {
-          "gitId": "ptvrajsk"
+          "gitId": "-"
         },
-        "content": "            return of(true);"
+        "content": "        if (!isSessionAvailable \u0026\u0026 this.currentPhase \u003d\u003d\u003d Phase.phaseBugReporting) {"
       },
       {
         "lineNumber": 179,
         "author": {
           "gitId": "ptvrajsk"
         },
-        "content": "          }"
+        "content": "          if (isSessionFixPermissionGranted) {"
       },
       {
         "lineNumber": 180,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": "          return this.openSessionFixConfirmation();"
+        "content": "            return of(true);"
       },
       {
         "lineNumber": 181,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": "        } else {"
+        "content": "          }"
       },
       {
         "lineNumber": 182,
         "author": {
           "gitId": "-"
         },
-        "content": "          return of(null);"
+        "content": "          return this.openSessionFixConfirmation();"
       },
       {
         "lineNumber": 183,
         "author": {
           "gitId": "-"
         },
-        "content": "        }"
+        "content": "        } else {"
       },
       {
         "lineNumber": 184,
         "author": {
           "gitId": "-"
         },
-        "content": "      }),"
+        "content": "          return of(null);"
       },
       {
         "lineNumber": 185,
         "author": {
-          "gitId": "ptvrajsk"
+          "gitId": "-"
         },
-        "content": "      cacheSessionFixPermission(),"
+        "content": "        }"
       },
       {
         "lineNumber": 186,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap((sessionFixPermission: boolean | null) \u003d\u003e {"
+        "content": "      }),"
       },
       {
         "lineNumber": 187,
         "author": {
-          "gitId": "-"
+          "gitId": "ptvrajsk"
         },
-        "content": "        if (sessionFixPermission \u003d\u003d\u003d null) {"
+        "content": "      cacheSessionFixPermission(),"
       },
       {
         "lineNumber": 188,
         "author": {
           "gitId": "-"
         },
-        "content": "          // No Session Fix Necessary"
+        "content": "      flatMap((sessionFixPermission: boolean | null) \u003d\u003e {"
       },
       {
         "lineNumber": 189,
         "author": {
           "gitId": "-"
         },
-        "content": "          return of(null);"
+        "content": "        if (sessionFixPermission \u003d\u003d\u003d null) {"
       },
       {
         "lineNumber": 190,
         "author": {
           "gitId": "-"
         },
-        "content": "        } if (sessionFixPermission \u003d\u003d\u003d true) {"
+        "content": "          // No Session Fix Necessary"
       },
       {
         "lineNumber": 191,
         "author": {
           "gitId": "-"
         },
-        "content": "          return this.attemptSessionAvailabilityFix(this.sessionData);"
+        "content": "          return of(null);"
       },
       {
         "lineNumber": 192,
         "author": {
           "gitId": "-"
         },
-        "content": "        } else {"
+        "content": "        } if (sessionFixPermission \u003d\u003d\u003d true) {"
       },
       {
         "lineNumber": 193,
         "author": {
           "gitId": "-"
         },
-        "content": "          throw new Error(\u0027You cannot proceed without the required repository.\u0027);"
+        "content": "          return this.attemptSessionAvailabilityFix(this.sessionData);"
       },
       {
         "lineNumber": 194,
         "author": {
           "gitId": "-"
         },
-        "content": "        }"
+        "content": "        } else {"
       },
       {
         "lineNumber": 195,
         "author": {
           "gitId": "-"
         },
-        "content": "      }),"
+        "content": "          throw new Error(\u0027You cannot proceed without the required repository.\u0027);"
       },
       {
         "lineNumber": 196,
         "author": {
           "gitId": "-"
         },
-        "content": "      flatMap((isFixAttempted: boolean | null) \u003d\u003e {"
+        "content": "        }"
       },
       {
         "lineNumber": 197,
         "author": {
           "gitId": "-"
         },
-        "content": "        if (isFixAttempted \u003d\u003d\u003d null) {"
+        "content": "      }),"
       },
       {
         "lineNumber": 198,
         "author": {
-          "gitId": "-"
+          "gitId": "seanlowjk"
         },
-        "content": "          // If no fix has been attempted, there is no need to verify fix outcome."
+        "content": "      this.repoCreatorService.verifyRepoCreation(this.getPhaseOwner(this.currentPhase), this.sessionData[this.currentPhase]),"
       },
       {
         "lineNumber": 199,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "          return of(true);"
-      },
-      {
-        "lineNumber": 200,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "        } else if (isFixAttempted \u003d\u003d\u003d true) {"
-      },
-      {
-        "lineNumber": 201,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "          // Verify that Repository has been created if a fix attempt has occurred."
-      },
-      {
-        "lineNumber": 202,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "          return this.verifySessionAvailability(this.sessionData);"
-      },
-      {
-        "lineNumber": 203,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "        }"
-      },
-      {
-        "lineNumber": 204,
-        "author": {
-          "gitId": "-"
-        },
-        "content": "      }),"
-      },
-      {
-        "lineNumber": 205,
         "author": {
           "gitId": "seanlowjk"
         },
         "content": "      throwIfFalse("
       },
       {
-        "lineNumber": 206,
+        "lineNumber": 200,
         "author": {
           "gitId": "seanlowjk"
         },
         "content": "        (isSessionCreated: boolean) \u003d\u003e isSessionCreated,"
       },
       {
-        "lineNumber": 207,
+        "lineNumber": 201,
         "author": {
           "gitId": "seanlowjk"
         },
         "content": "        () \u003d\u003e new Error(SESSION_AVALIABILITY_FIX_FAILED)),"
       },
       {
-        "lineNumber": 208,
+        "lineNumber": 202,
         "author": {
           "gitId": "seanlowjk"
         },
         "content": "      this.labelService.syncLabels(),"
       },
       {
-        "lineNumber": 209,
+        "lineNumber": 203,
         "author": {
           "gitId": "ptvrajsk"
         },
         "content": "      retry(1)  // Retry once, to handle edge case where GitHub API cannot immediately confirm existence of the newly created repo."
       },
       {
-        "lineNumber": 210,
+        "lineNumber": 204,
         "author": {
           "gitId": "-"
         },
         "content": "    );"
       },
       {
-        "lineNumber": 211,
+        "lineNumber": 205,
         "author": {
           "gitId": "-"
         },
         "content": "  }"
       },
       {
-        "lineNumber": 212,
+        "lineNumber": 206,
         "author": {
           "gitId": "-"
         },
         "content": ""
       },
       {
-        "lineNumber": 213,
+        "lineNumber": 207,
         "author": {
           "gitId": "-"
         },
         "content": "  public getPhaseDetail() {"
       },
       {
-        "lineNumber": 214,
+        "lineNumber": 208,
         "author": {
           "gitId": "-"
         },
         "content": "    return this.orgName.concat(\u0027/\u0027).concat(this.repoName);"
       },
       {
-        "lineNumber": 215,
+        "lineNumber": 209,
         "author": {
           "gitId": "-"
         },
         "content": "  }"
       },
       {
-        "lineNumber": 216,
+        "lineNumber": 210,
         "author": {
           "gitId": "-"
         },
         "content": ""
       },
       {
-        "lineNumber": 217,
+        "lineNumber": 211,
         "author": {
           "gitId": "-"
         },
         "content": "  reset() {"
       },
       {
-        "lineNumber": 218,
+        "lineNumber": 212,
         "author": {
           "gitId": "-"
         },
         "content": "    this.currentPhase \u003d null;"
       },
       {
-        "lineNumber": 219,
+        "lineNumber": 213,
         "author": {
           "gitId": "-"
         },
         "content": "  }"
       },
       {
-        "lineNumber": 220,
+        "lineNumber": 214,
         "author": {
           "gitId": "-"
         },
         "content": ""
       },
       {
-        "lineNumber": 221,
+        "lineNumber": 215,
         "author": {
           "gitId": "-"
         },
@@ -30781,8 +30739,241 @@
     "authorContributionMap": {
       "dingyuchen": 1,
       "ptvrajsk": 23,
-      "seanlowjk": 6,
-      "-": 191
+      "seanlowjk": 9,
+      "-": 182
+    }
+  },
+  {
+    "path": "src/app/core/services/repo-creator.service.ts",
+    "fileType": "ts",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { Injectable } from \u0027@angular/core\u0027;"
+      },
+      {
+        "lineNumber": 2,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { flatMap } from \u0027rxjs/operators\u0027;"
+      },
+      {
+        "lineNumber": 3,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { Observable, of, pipe, UnaryFunction } from \u0027rxjs\u0027;"
+      },
+      {
+        "lineNumber": 4,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { GithubService } from \u0027./github.service\u0027;"
+      },
+      {
+        "lineNumber": 5,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 6,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "@Injectable({"
+      },
+      {
+        "lineNumber": 7,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  providedIn: \u0027root\u0027,"
+      },
+      {
+        "lineNumber": 8,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "})"
+      },
+      {
+        "lineNumber": 9,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "export class RepoCreatorService {"
+      },
+      {
+        "lineNumber": 10,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  constructor("
+      },
+      {
+        "lineNumber": 11,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    private githubService: GithubService"
+      },
+      {
+        "lineNumber": 12,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  ) {}"
+      },
+      {
+        "lineNumber": 13,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 14,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  /**"
+      },
+      {
+        "lineNumber": 15,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "   * Checks if the specified repository has been created."
+      },
+      {
+        "lineNumber": 16,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "   * @param phaseOwner the user or organization holding the specified repository."
+      },
+      {
+        "lineNumber": 17,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "   * @param phaseRepo the name of the specified repository."
+      },
+      {
+        "lineNumber": 18,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "   */"
+      },
+      {
+        "lineNumber": 19,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  public verifyRepoCreation(phaseOwner: string, phaseRepo: string): UnaryFunction\u003cObservable\u003cboolean | null\u003e, Observable\u003cboolean\u003e\u003e {"
+      },
+      {
+        "lineNumber": 20,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    return pipe("
+      },
+      {
+        "lineNumber": 21,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      flatMap((isFixAttempted: boolean | null) \u003d\u003e {"
+      },
+      {
+        "lineNumber": 22,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "        if (!isFixAttempted) {"
+      },
+      {
+        "lineNumber": 23,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "          // If no fix has been attempted, there is no need to verify fix outcome."
+      },
+      {
+        "lineNumber": 24,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "          return of(true);"
+      },
+      {
+        "lineNumber": 25,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "        } else {"
+      },
+      {
+        "lineNumber": 26,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "          // Verify that Repository has been created if a fix attempt has occurred."
+      },
+      {
+        "lineNumber": 27,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "          return this.githubService.isRepositoryPresent(phaseOwner, phaseRepo);"
+      },
+      {
+        "lineNumber": 28,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "        }"
+      },
+      {
+        "lineNumber": 29,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      })"
+      },
+      {
+        "lineNumber": 30,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    );"
+      },
+      {
+        "lineNumber": 31,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  }"
+      },
+      {
+        "lineNumber": 32,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "}"
+      }
+    ],
+    "authorContributionMap": {
+      "seanlowjk": 32
     }
   },
   {
@@ -43479,9 +43670,9 @@
       {
         "lineNumber": 20,
         "author": {
-          "gitId": "-"
+          "gitId": "seanlowjk"
         },
-        "content": "    phaseService \u003d new PhaseService(null, null, null, null, null);"
+        "content": "    phaseService \u003d new PhaseService(null, null, null, null, null, null);"
       },
       {
         "lineNumber": 21,
@@ -44004,7 +44195,8 @@
     ],
     "authorContributionMap": {
       "dingyuchen": 2,
-      "-": 92
+      "seanlowjk": 1,
+      "-": 91
     }
   },
   {
@@ -44542,9 +44734,9 @@
       {
         "lineNumber": 18,
         "author": {
-          "gitId": "-"
+          "gitId": "seanlowjk"
         },
-        "content": "    phaseService \u003d new PhaseService(null, null, null, null, null);"
+        "content": "    phaseService \u003d new PhaseService(null, null, null, null, null, null);"
       },
       {
         "lineNumber": 19,
@@ -44864,7 +45056,8 @@
     ],
     "authorContributionMap": {
       "dingyuchen": 2,
-      "-": 61
+      "seanlowjk": 1,
+      "-": 60
     }
   },
   {
@@ -53132,9 +53325,9 @@
       {
         "lineNumber": 23,
         "author": {
-          "gitId": "-"
+          "gitId": "seanlowjk"
         },
-        "content": "const mockPhaseService \u003d new PhaseService(null, null, null, null, null);"
+        "content": "const mockPhaseService \u003d new PhaseService(null, null, null, null, null, null);"
       },
       {
         "lineNumber": 24,
@@ -53496,7 +53689,8 @@
     ],
     "authorContributionMap": {
       "dingyuchen": 2,
-      "-": 72
+      "seanlowjk": 1,
+      "-": 71
     }
   },
   {
@@ -53627,7 +53821,7 @@
         "author": {
           "gitId": "seanlowjk"
         },
-        "content": "    phaseService \u003d new PhaseService(null, githubService, null, null, null);"
+        "content": "    phaseService \u003d new PhaseService(null, githubService, null, null, null, null);"
       },
       {
         "lineNumber": 19,
@@ -53970,6 +54164,218 @@
       "dingyuchen": 3,
       "ptvrajsk": 4,
       "seanlowjk": 59
+    }
+  },
+  {
+    "path": "tests/services/repo-creator.service.spec.ts",
+    "fileType": "ts",
+    "lines": [
+      {
+        "lineNumber": 1,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { RepoCreatorService } from \u0027../../src/app/core/services/repo-creator.service\u0027;"
+      },
+      {
+        "lineNumber": 2,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "import { of } from \u0027rxjs\u0027;"
+      },
+      {
+        "lineNumber": 3,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 4,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "const PHASE_OWNER \u003d \u0027CATcher-org\u0027;"
+      },
+      {
+        "lineNumber": 5,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "const PHASE_REPO \u003d \u0027bugreporting\u0027;"
+      },
+      {
+        "lineNumber": 6,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "let repoCreatorService: RepoCreatorService;"
+      },
+      {
+        "lineNumber": 7,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "let githubService: any;"
+      },
+      {
+        "lineNumber": 8,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 9,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "describe(\u0027RepoCreatorService\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 10,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  beforeEach(() \u003d\u003e {"
+      },
+      {
+        "lineNumber": 11,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    githubService \u003d jasmine.createSpyObj(\u0027GithubService\u0027, [\u0027isRepositoryPresent\u0027]);"
+      },
+      {
+        "lineNumber": 12,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    repoCreatorService \u003d new RepoCreatorService(githubService);"
+      },
+      {
+        "lineNumber": 13,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  });"
+      },
+      {
+        "lineNumber": 14,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 15,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  describe(\u0027.verifyRepoCreation()\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 16,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    it(\u0027should not need to check the presence of the repository if no fix was done\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 17,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      of(null).pipe(repoCreatorService.verifyRepoCreation(PHASE_OWNER, PHASE_REPO)).subscribe();"
+      },
+      {
+        "lineNumber": 18,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 19,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      expect(githubService.isRepositoryPresent).not.toHaveBeenCalled();"
+      },
+      {
+        "lineNumber": 20,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 21,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 22,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    it(\u0027should check the presence of the repository if a fix was done\u0027, () \u003d\u003e {"
+      },
+      {
+        "lineNumber": 23,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      githubService.isRepositoryPresent.and.callFake(() \u003d\u003e of(true));"
+      },
+      {
+        "lineNumber": 24,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      of(true).pipe(repoCreatorService.verifyRepoCreation(PHASE_OWNER, PHASE_REPO)).subscribe();"
+      },
+      {
+        "lineNumber": 25,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": ""
+      },
+      {
+        "lineNumber": 26,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "      expect(githubService.isRepositoryPresent).toHaveBeenCalledWith(PHASE_OWNER, PHASE_REPO);"
+      },
+      {
+        "lineNumber": 27,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "    });"
+      },
+      {
+        "lineNumber": 28,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "  });"
+      },
+      {
+        "lineNumber": 29,
+        "author": {
+          "gitId": "seanlowjk"
+        },
+        "content": "});"
+      }
+    ],
+    "authorContributionMap": {
+      "seanlowjk": 29
     }
   },
   {
