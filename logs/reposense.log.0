@@ -1,72 +1,72 @@
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.model.AuthorConfiguration checkDuplicateAliases
+Apr 26, 2021 12:07:49 AM reposense.model.AuthorConfiguration checkDuplicateAliases
 WARNING: Duplicate alias Derek-Hardy found. The alias will belong to the last author - Derek-Hardy
-Apr 25, 2021 12:07:07 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:07:50 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/markbind/markbind.git...
-Apr 25, 2021 12:07:07 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:07:50 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/markbind/markbind.git to complete...
-Apr 25, 2021 12:07:27 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:07:51 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/markbind/markbind.git completed!
-Apr 25, 2021 12:07:27 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:07:51 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/TEAMMATES/teammates.git...
-Apr 25, 2021 12:07:27 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:07:51 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [1/8] Analyzing https://github.com/markbind/markbind.git (master)...
-Apr 25, 2021 12:07:28 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:07:52 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/markbind/markbind.git (master) does not contain a standalone config file.
-Apr 25, 2021 12:07:28 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:07:52 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/markbind/markbind.git (master)...
-Apr 25, 2021 12:07:28 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:07:53 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/markbind/markbind.git (master)...
-Apr 25, 2021 12:07:28 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:07:53 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/markbind/markbind.git (master)...
-Apr 25, 2021 12:07:34 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:08:05 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/markbind/markbind.git (master) completed!
-Apr 25, 2021 12:07:34 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:08:05 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/TEAMMATES/teammates.git to complete...
-Apr 25, 2021 12:07:55 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:08:14 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/TEAMMATES/teammates.git completed!
-Apr 25, 2021 12:07:55 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:08:14 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/reposense/reposense.git...
-Apr 25, 2021 12:07:55 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:14 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [2/8] Analyzing https://github.com/TEAMMATES/teammates.git (master)...
-Apr 25, 2021 12:07:55 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:08:14 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/TEAMMATES/teammates.git (master) does not contain a standalone config file.
-Apr 25, 2021 12:07:55 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:08:14 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/TEAMMATES/teammates.git (master)...
-Apr 25, 2021 12:07:56 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:08:15 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/TEAMMATES/teammates.git (master)...
-Apr 25, 2021 12:07:56 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:08:15 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/TEAMMATES/teammates.git (master)...
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/TEAMMATES/teammates.git (master) completed!
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [3/8] Analyzing https://github.com/TEAMMATES/teammates.git (audit-logs)...
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepos
 SEVERE: Branch audit-logs does not exist in https://github.com/TEAMMATES/teammates.git! Analysis terminated.
 reposense.git.exception.GitBranchException: reposense.system.CommandRunnerProcessException: Error returned from command git rev-parse --verify audit-logson path repos/TEAMMATES_teammates/teammates_bare :
 fatal: Needed a single revision
@@ -77,9 +77,9 @@ fatal: Needed a single revision
 	at reposense.report.ReportGenerator.generateReposReport(ReportGenerator.java:114)
 	at reposense.RepoSense.main(RepoSense.java:79)
 
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [4/8] Analyzing https://github.com/TEAMMATES/teammates.git (objectify-v6-migration)...
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepos
 SEVERE: Branch objectify-v6-migration does not exist in https://github.com/TEAMMATES/teammates.git! Analysis terminated.
 reposense.git.exception.GitBranchException: reposense.system.CommandRunnerProcessException: Error returned from command git rev-parse --verify objectify-v6-migrationon path repos/TEAMMATES_teammates/teammates_bare :
 fatal: Needed a single revision
@@ -90,77 +90,77 @@ fatal: Needed a single revision
 	at reposense.report.ReportGenerator.generateReposReport(ReportGenerator.java:114)
 	at reposense.RepoSense.main(RepoSense.java:79)
 
-Apr 25, 2021 12:08:24 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:08:55 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/reposense/reposense.git to complete...
-Apr 25, 2021 12:08:24 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:08:55 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/reposense/reposense.git completed!
-Apr 25, 2021 12:08:24 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:08:55 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/markbind/vue-strap.git...
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [5/8] Analyzing https://github.com/reposense/reposense.git (master)...
-Apr 25, 2021 12:08:24 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:08:55 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: Ignoring standalone config file in https://github.com/reposense/reposense.git (master).
-Apr 25, 2021 12:08:24 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:08:55 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/reposense/reposense.git (master)...
-Apr 25, 2021 12:08:24 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:08:55 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/reposense/reposense.git (master)...
-Apr 25, 2021 12:08:24 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:08:55 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/reposense/reposense.git (master)...
-Apr 25, 2021 12:08:28 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:09:01 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/reposense/reposense.git (master) completed!
-Apr 25, 2021 12:08:28 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:01 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/markbind/vue-strap.git to complete...
-Apr 25, 2021 12:08:28 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:01 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/markbind/vue-strap.git completed!
-Apr 25, 2021 12:08:28 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:09:01 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/CATcher-org/CATcher.git...
-Apr 25, 2021 12:08:28 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:09:01 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [6/8] Analyzing https://github.com/markbind/vue-strap.git (master)...
-Apr 25, 2021 12:08:28 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:09:01 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/markbind/vue-strap.git (master) does not contain a standalone config file.
-Apr 25, 2021 12:08:28 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:09:01 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/markbind/vue-strap.git (master)...
-Apr 25, 2021 12:08:28 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:09:01 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/markbind/vue-strap.git (master)...
-Apr 25, 2021 12:08:28 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:09:01 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/markbind/vue-strap.git (master)...
-Apr 25, 2021 12:08:28 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:09:01 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/markbind/vue-strap.git (master) completed!
-Apr 25, 2021 12:08:28 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:01 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/CATcher-org/CATcher.git to complete...
-Apr 25, 2021 12:08:29 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:02 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/CATcher-org/CATcher.git completed!
-Apr 25, 2021 12:08:29 AM reposense.report.RepoCloner spawnCloneProcess
+Apr 26, 2021 12:09:02 AM reposense.report.RepoCloner spawnCloneProcess
 INFO: Cloning in parallel from https://github.com/se-edu/addressbook-level3.git...
-Apr 25, 2021 12:08:29 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:09:02 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [7/8] Analyzing https://github.com/CATcher-org/CATcher.git (master)...
-Apr 25, 2021 12:08:29 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:09:02 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/CATcher-org/CATcher.git (master) does not contain a standalone config file.
-Apr 25, 2021 12:08:29 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:09:02 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/CATcher-org/CATcher.git (master)...
-Apr 25, 2021 12:08:29 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:09:02 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/CATcher-org/CATcher.git (master)...
-Apr 25, 2021 12:08:29 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:09:02 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/CATcher-org/CATcher.git (master)...
-Apr 25, 2021 12:08:30 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:09:04 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/CATcher-org/CATcher.git (master) completed!
-Apr 25, 2021 12:08:30 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:04 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Waiting for cloning of https://github.com/se-edu/addressbook-level3.git to complete...
-Apr 25, 2021 12:08:30 AM reposense.report.RepoCloner waitForCloneProcess
+Apr 26, 2021 12:09:04 AM reposense.report.RepoCloner waitForCloneProcess
 INFO: Cloning of https://github.com/se-edu/addressbook-level3.git completed!
-Apr 25, 2021 12:08:30 AM reposense.report.ReportGenerator analyzeRepos
+Apr 26, 2021 12:09:04 AM reposense.report.ReportGenerator analyzeRepos
 INFO: [8/8] Analyzing https://github.com/se-edu/addressbook-level3.git (master)...
-Apr 25, 2021 12:08:30 AM reposense.report.ReportGenerator updateRepoConfig
+Apr 26, 2021 12:09:04 AM reposense.report.ReportGenerator updateRepoConfig
 INFO: https://github.com/se-edu/addressbook-level3.git (master) does not contain a standalone config file.
-Apr 25, 2021 12:08:30 AM reposense.commits.CommitInfoExtractor extractCommitInfos
+Apr 26, 2021 12:09:04 AM reposense.commits.CommitInfoExtractor extractCommitInfos
 INFO: Extracting commits info for https://github.com/se-edu/addressbook-level3.git (master)...
-Apr 25, 2021 12:08:31 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
+Apr 26, 2021 12:09:04 AM reposense.commits.CommitInfoAnalyzer analyzeCommits
 INFO: Analyzing commits info for https://github.com/se-edu/addressbook-level3.git (master)...
-Apr 25, 2021 12:08:31 AM reposense.authorship.FileInfoExtractor extractFileInfos
+Apr 26, 2021 12:09:04 AM reposense.authorship.FileInfoExtractor extractFileInfos
 INFO: Extracting relevant file info from https://github.com/se-edu/addressbook-level3.git (master)...
-Apr 25, 2021 12:08:31 AM reposense.report.ReportGenerator analyzeRepo
+Apr 26, 2021 12:09:04 AM reposense.report.ReportGenerator analyzeRepo
 INFO: Analysis of https://github.com/se-edu/addressbook-level3.git (master) completed!
-Apr 25, 2021 12:08:31 AM reposense.report.ReportGenerator generateReposReport
+Apr 26, 2021 12:09:04 AM reposense.report.ReportGenerator generateReposReport
 INFO: The report is generated at /home/runner/work/2021-dashboard/2021-dashboard/reposense-report
-Apr 25, 2021 12:08:31 AM reposense.RepoSense main
-INFO: Elapsed processing time: 1 minute(s) 24.06 second(s)
+Apr 26, 2021 12:09:05 AM reposense.RepoSense main
+INFO: Elapsed processing time: 1 minute(s) 16.01 second(s)
